@@ -1,0 +1,66 @@
+import type { Testimonial } from '../types';
+
+// NOTE: These are PLACEHOLDER/DEMO testimonials only.
+// Replace with genuine testimonials before going live.
+export const testimonials: Testimonial[] = [
+  {
+    id: 't1',
+    name: 'Rahul Sharma',
+    city: 'Delhi',
+    rating: 5,
+    text: 'The puja was conducted with great devotion and traditional procedure. The Pandit Ji was very knowledgeable and guided us through the entire process. We felt truly blessed after the ceremony at Ujjain.',
+    service: 'Mangal Dosh Puja',
+    date: '2025-03-15',
+    isPlaceholder: true,
+  },
+  {
+    id: 't2',
+    name: 'Priya Mehta',
+    city: 'Mumbai',
+    rating: 5,
+    text: 'I was hesitant initially but the team was very professional and explained everything clearly without any exaggeration. The Mangal Bhat Puja was conducted exactly as described. The experience in Ujjain was deeply spiritual.',
+    service: 'Mangal Bhat Puja',
+    date: '2025-04-20',
+    isPlaceholder: true,
+  },
+  {
+    id: 't3',
+    name: 'Amit Gupta',
+    city: 'Jaipur',
+    rating: 5,
+    text: 'Excellent arrangement. The booking process was simple, the team was responsive, and the puja was performed with complete traditional procedure. Highly recommend for anyone visiting Ujjain for Mangal Dosh Puja.',
+    service: 'Mangal Shanti Puja',
+    date: '2025-05-10',
+    isPlaceholder: true,
+  },
+  {
+    id: 't4',
+    name: 'Sunita Patel',
+    city: 'Ahmedabad',
+    rating: 5,
+    text: 'The Navgraha Shanti Puja was comprehensive and well-organized. Pandit Ji explained the significance of each step during the ritual. The entire atmosphere of Ujjain adds to the spiritual experience.',
+    service: 'Navgraha Shanti',
+    date: '2025-06-05',
+    isPlaceholder: true,
+  },
+  {
+    id: 't5',
+    name: 'Vikram Singh',
+    city: 'Lucknow',
+    rating: 5,
+    text: 'Very professional service. The team helped us with all arrangements and the Rudrabhishek was performed in the traditional manner. Will definitely visit again for future puja requirements.',
+    service: 'Rudrabhishek',
+    date: '2025-07-12',
+    isPlaceholder: true,
+  },
+  {
+    id: 't6',
+    name: 'Kavita Joshi',
+    city: 'Pune',
+    rating: 5,
+    text: 'The booking was smooth, the communication was prompt, and the puja ceremony was conducted beautifully. Pandit Ji was very courteous and made our family feel welcome throughout the ritual.',
+    service: 'Mangal Dosh Puja',
+    date: '2025-08-01',
+    isPlaceholder: true,
+  },
+];

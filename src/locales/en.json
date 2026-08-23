@@ -1,0 +1,111 @@
+{
+  "nav": {
+    "home": "Home",
+    "mangalDoshPuja": "Mangal Dosh Puja",
+    "pujaPackages": "Puja Packages",
+    "whyUjjain": "Why Ujjain",
+    "about": "About",
+    "faqs": "FAQs",
+    "contact": "Contact",
+    "callNow": "Call Now",
+    "whatsApp": "WhatsApp",
+    "bookPuja": "Book Puja"
+  },
+  "hero": {
+    "badge": "🕉 Vedic Mangal Dosh Nivaran Puja",
+    "h1": "Mangal Dosh Puja in Ujjain",
+    "subtitle": "Experience traditional Mangal Dosh and Mangal Bhat Puja rituals in the sacred city of Ujjain under experienced Vedic Pandits.",
+    "primaryCta": "Book Mangal Dosh Puja",
+    "secondaryCta": "Talk to Pandit Ji",
+    "trust1": "Experienced Pandits",
+    "trust2": "Vedic Ritual Process",
+    "trust3": "Ujjain-Based Puja",
+    "trust4": "Booking Assistance"
+  },
+  "trustStats": {
+    "title": "Trusted by Devotees Across India"
+  },
+  "mangalDosh": {
+    "sectionTitle": "What is Mangal Dosh?",
+    "intro": "According to traditional Vedic astrology…",
+    "cta": "Learn About Mangal Dosh Puja"
+  },
+  "whyUjjain": {
+    "sectionTitle": "Why Perform Mangal Dosh Puja in Ujjain?"
+  },
+  "services": {
+    "sectionTitle": "Our Puja Services",
+    "viewDetails": "View Details →"
+  },
+  "howItWorks": {
+    "sectionTitle": "How Mangal Dosh Puja Works"
+  },
+  "packages": {
+    "sectionTitle": "Mangal Dosh Puja Packages"
+  },
+  "pandit": {
+    "sectionTitle": "Meet Our Vedic Pandit",
+    "talkCta": "Talk to Pandit Ji"
+  },
+  "location": {
+    "sectionTitle": "Mangalnath Temple, Ujjain",
+    "viewLocation": "View Location"
+  },
+  "checker": {
+    "sectionTitle": "Do You Have Mangal Dosh?",
+    "checkButton": "Check My Mangal Dosh",
+    "resultMessage": "Your information has been received. For accurate birth-chart interpretation, please consult our Pandit Ji.",
+    "consultCta": "Consult Pandit Ji"
+  },
+  "testimonials": {
+    "sectionTitle": "Devotee Experiences"
+  },
+  "faq": {
+    "sectionTitle": "Frequently Asked Questions"
+  },
+  "blog": {
+    "sectionTitle": "Spiritual Knowledge & Guides",
+    "readMore": "Read More →"
+  },
+  "finalCta": {
+    "heading": "Begin Your Spiritual Journey in Ujjain",
+    "text": "Connect with our team to learn more about traditional Mangal Dosh Puja and available booking options.",
+    "bookPuja": "Book Puja",
+    "whatsappCta": "WhatsApp Pandit Ji"
+  },
+  "footer": {
+    "tagline": "Authentic Vedic Puja Services in Ujjain.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "legal": "Legal",
+    "contact": "Contact Us",
+    "copyright": "© 2026 MangalDoshPujaUjjain. All Rights Reserved."
+  },
+  "booking": {
+    "title": "Book Your Puja",
+    "step1": "Select Puja",
+    "step2": "Select Date & Time",
+    "step3": "Your Details",
+    "step4": "Review & Submit",
+    "selectPuja": "Select Puja",
+    "selectPackage": "Select Package",
+    "selectDate": "Preferred Date",
+    "selectTime": "Preferred Time",
+    "fullName": "Full Name",
+    "mobile": "Mobile Number",
+    "email": "Email (optional)",
+    "dob": "Date of Birth (optional)",
+    "tob": "Time of Birth (optional)",
+    "pob": "Place of Birth (optional)",
+    "devotees": "Number of Devotees",
+    "notes": "Additional Notes (optional)",
+    "submitButton": "Submit Booking Request",
+    "successTitle": "Booking Request Received 🙏",
+    "successMessage": "We have received your request. Our team will contact you shortly.",
+    "whatsappButton": "WhatsApp Us",
+    "callButton": "Call Now"
+  },
+  "whatsapp": {
+    "chatLabel": "Chat with Pandit Ji"
+  }
+}
