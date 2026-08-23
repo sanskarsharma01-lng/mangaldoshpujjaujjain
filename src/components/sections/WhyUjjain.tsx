@@ -45,9 +45,9 @@ export const WhyUjjain: React.FC = () => {
   ];
 
   return (
-    <section className="section-padding bg-primary-dark text-ivory relative overflow-hidden" id="why-ujjain">
+    <section className="section-padding bg-[#FDF8EF] relative overflow-hidden" id="why-ujjain">
       {/* Background patterns */}
-      <div className="absolute inset-0 pattern-grid opacity-5 pointer-events-none" />
+      <div className="absolute inset-0 pattern-grid opacity-10 pointer-events-none" />
 
       <div className="container-custom relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -55,11 +55,11 @@ export const WhyUjjain: React.FC = () => {
             <span className="section-label text-gold justify-center">
               <span aria-hidden="true">🔱</span> पवित्र अवंतिका धाम
             </span>
-            <h2 className="section-title-light">
+            <h2 className="section-title">
               {t('whyUjjain.sectionTitle')}
             </h2>
             <div className="gold-divider" />
-            <p className="text-ivory/70 text-lg mt-4">
+            <p className="text-text-muted text-lg mt-4">
               Ujjain holds a unique position in Vedic cosmology and astrology. Perform your rituals in the ultimate city of Lord Shiva and Mangal Dev.
             </p>
           </ScrollReveal>
@@ -69,7 +69,7 @@ export const WhyUjjain: React.FC = () => {
           {cards.map((card, index) => (
             <div
               key={index}
-              className="group relative flex flex-col p-6 rounded-2xl bg-white/5 border border-gold/10 hover:border-gold/30 hover:bg-white/10 transition-all duration-300 shadow-glass"
+              className="group relative flex flex-col p-6 rounded-2xl bg-white border border-gold/15 hover:border-gold/35 hover:shadow-gold-sm hover:bg-gold/5 transition-all duration-300 shadow-glass"
             >
               {/* Gold border hover line */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left rounded-t-2xl" />
@@ -78,11 +78,11 @@ export const WhyUjjain: React.FC = () => {
                 <span aria-hidden="true">{card.icon}</span>
               </div>
 
-              <h3 className="text-xl font-poppins font-bold text-gold mb-3">
+              <h3 className="text-xl font-poppins font-bold text-primary mb-3">
                 {card.title}
               </h3>
 
-              <p className="text-ivory/70 text-sm leading-relaxed">
+              <p className="text-text-muted text-sm leading-relaxed">
                 {card.desc}
               </p>
             </div>

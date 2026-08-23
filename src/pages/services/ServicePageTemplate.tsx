@@ -60,16 +60,16 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ slug }
         </div>
 
         {/* Hero Compact Banner */}
-        <div className="bg-primary text-ivory py-16 text-center relative overflow-hidden">
-          <div className="absolute inset-0 pattern-dots opacity-10 pointer-events-none" />
+        <div className="page-banner-light py-16 text-center relative overflow-hidden">
+          <div className="absolute inset-0 pattern-dots opacity-[0.07] pointer-events-none" />
           <div className="container-custom relative z-10 space-y-3">
             <span className="text-gold text-5xl block animate-bounce-gentle select-none" aria-hidden="true">
               {service.icon}
             </span>
-            <h1 className="text-3xl md:text-5xl font-poppins font-bold leading-tight">
+            <h1 className="text-3xl md:text-5xl font-poppins font-bold text-primary leading-tight">
               {service.name}
             </h1>
-            <p className="text-ivory/70 text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
+            <p className="text-text-muted text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
               {service.shortDescription}
             </p>
           </div>

@@ -64,7 +64,7 @@ export const MangalDoshIntro: React.FC = () => {
           {/* Right Column: Decorative Sacred Visual */}
           <div className="lg:col-span-5 flex justify-center">
             <ScrollReveal direction="right" delay={0.2} className="w-full max-w-sm">
-              <div className="relative aspect-square rounded-3xl bg-primary-dark/95 border-2 border-gold/30 shadow-primary-lg flex items-center justify-center p-8 overflow-hidden group">
+              <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-[#FDF6E8] to-[#F5E8CE] border-2 border-gold/30 shadow-gold flex items-center justify-center p-8 overflow-hidden group">
                 {/* Rotating decorative mandala rings */}
                 <div className="absolute inset-4 border border-gold/15 rounded-full animate-spin-slow opacity-60 pointer-events-none" />
                 <div className="absolute inset-10 border border-dashed border-gold/10 rounded-full animate-spin-slow opacity-40 pointer-events-none [animation-direction:reverse]" />
@@ -73,16 +73,16 @@ export const MangalDoshIntro: React.FC = () => {
                 <div className="relative z-10 text-center space-y-4">
                   <span className="text-gold text-8xl block select-none drop-shadow-[0_0_15px_rgba(201,162,39,0.4)] transition-transform duration-500 group-hover:scale-105" aria-hidden="true">🕉</span>
                   <div className="space-y-1">
-                    <p className="text-gold font-serif text-xl tracking-wider font-semibold">श्री मंगलनाथाय नमः</p>
-                    <p className="text-ivory/60 text-xs tracking-widest uppercase">Sacred Ujjain Dham</p>
+                    <p className="text-primary font-serif text-xl tracking-wider font-semibold">श्री मंगलनाथाय नमः</p>
+                    <p className="text-primary text-xs tracking-widest uppercase">Sacred Ujjain Dham</p>
                   </div>
                 </div>
 
                 {/* Decorative corners */}
-                <div className="absolute top-4 left-4 text-gold/30 text-xs">🔱</div>
-                <div className="absolute top-4 right-4 text-gold/30 text-xs">🔱</div>
-                <div className="absolute bottom-4 left-4 text-gold/30 text-xs">🔱</div>
-                <div className="absolute bottom-4 right-4 text-gold/30 text-xs">🔱</div>
+                <div className="absolute top-4 left-4 text-gold/60 text-xs">🔱</div>
+                <div className="absolute top-4 right-4 text-gold/60 text-xs">🔱</div>
+                <div className="absolute bottom-4 left-4 text-gold/60 text-xs">🔱</div>
+                <div className="absolute bottom-4 right-4 text-gold/60 text-xs">🔱</div>
               </div>
             </ScrollReveal>
           </div>

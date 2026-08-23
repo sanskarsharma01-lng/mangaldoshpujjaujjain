@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, MessageCircle, Menu, X } from 'lucide-react';
+import { MessageCircle, Menu, X } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { useBooking } from '../../contexts/BookingContext';
 import { siteConfig } from '../../data/siteConfig';
@@ -54,7 +54,7 @@ const NAV_ITEMS: NavItem[] = [
 const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
   siteConfig.whatsappMessage
 )}`;
-const telUrl = `tel:${siteConfig.phone.replace(/[^+\d]/g, '')}`;
+
 
 // ─────────────────────────────────────────────
 //  Sub-components
@@ -236,9 +236,7 @@ export const Navbar: React.FC = () => {
     return () => document.removeEventListener('keydown', trap);
   }, [isMobileOpen]);
 
-  const handleCallClick = useCallback(() => {
-    trackEvent('call_clicked', { source: 'navbar' });
-  }, []);
+
 
   const handleWhatsAppClick = useCallback(() => {
     trackEvent('whatsapp_clicked', { source: 'navbar' });
@@ -337,16 +335,7 @@ export const Navbar: React.FC = () => {
                 </span>
               </button>
 
-              {/* Call Now */}
-              <a
-                href={telUrl}
-                onClick={handleCallClick}
-                aria-label={`Call us at ${siteConfig.phone}`}
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl border border-primary/30 text-primary hover:bg-primary hover:text-ivory hover:border-primary transition-all duration-200 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-              >
-                <Phone size={15} strokeWidth={2.2} aria-hidden="true" />
-                <span className="hidden xl:inline">Call Now</span>
-              </a>
+
 
               {/* WhatsApp */}
               <a
@@ -509,19 +498,7 @@ export const Navbar: React.FC = () => {
               {/* Drawer footer CTAs */}
               <div className="px-4 py-5 border-t border-gold/20 bg-cream/40 space-y-3">
                 {/* Call + WhatsApp row */}
-                <div className="grid grid-cols-2 gap-2.5">
-                  <a
-                    href={telUrl}
-                    onClick={() => {
-                      handleCallClick();
-                      closeMobile();
-                    }}
-                    aria-label={`Call us at ${siteConfig.phone}`}
-                    className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-primary/40 text-primary font-semibold text-sm hover:bg-primary hover:text-ivory hover:border-primary transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
-                  >
-                    <Phone size={16} strokeWidth={2.2} aria-hidden="true" />
-                    Call Now
-                  </a>
+                <div className="grid grid-cols-1">
                   <a
                     href={whatsappUrl}
                     target="_blank"
@@ -531,10 +508,10 @@ export const Navbar: React.FC = () => {
                       closeMobile();
                     }}
                     aria-label="Chat with us on WhatsApp"
-                    className="btn-whatsapp text-sm px-4 py-2.5"
+                    className="btn-whatsapp text-sm px-4 py-3 flex items-center justify-center gap-2"
                   >
                     <MessageCircle size={16} strokeWidth={2.2} aria-hidden="true" />
-                    WhatsApp
+                    WhatsApp Chat
                   </a>
                 </div>
 
@@ -549,12 +526,6 @@ export const Navbar: React.FC = () => {
                 >
                   <span>Book Puja Now</span>
                 </button>
-
-                {/* Phone display */}
-                <p className="text-center text-xs text-text-muted">
-                  <span aria-hidden="true">📞 </span>
-                  {siteConfig.phone}
-                </p>
               </div>
             </motion.div>
           </>

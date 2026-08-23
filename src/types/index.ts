@@ -18,8 +18,8 @@ export interface Service {
 export interface Package {
   id: string;
   name: string;
-  price: number;
-  priceDisplay: string;
+  price?: number;
+  priceDisplay?: string;
   description: string;
   features: string[];
   highlighted: boolean;

@@ -38,9 +38,9 @@ const CellValue: React.FC<{ value: boolean | string; colLabel: string }> = ({
 //  Column header pill labels
 // ─────────────────────────────────────────────
 const colHeaders = [
-  { key: 'basic' as const, label: 'Basic', price: '₹1,500', style: 'text-primary' },
-  { key: 'standard' as const, label: 'Standard', price: '₹3,100', style: 'text-ivory', highlighted: true },
-  { key: 'premium' as const, label: 'Premium', price: '₹11,000', style: 'text-primary' },
+  { key: 'basic' as const, label: 'Basic', style: 'text-primary' },
+  { key: 'standard' as const, label: 'Standard', style: 'text-ivory', highlighted: true },
+  { key: 'premium' as const, label: 'Premium', style: 'text-primary' },
 ];
 
 // ─────────────────────────────────────────────
@@ -125,13 +125,7 @@ export const PackageComparison: React.FC = () => {
                       >
                         {col.label}
                       </span>
-                      <span
-                        className={`text-xs font-semibold ${
-                          col.highlighted ? 'text-gold' : 'text-gold'
-                        }`}
-                      >
-                        {col.price}+
-                      </span>
+
                       {col.highlighted && (
                         <span className="mt-1 inline-block px-2 py-0.5 bg-gold text-primary text-[10px] font-bold rounded-full tracking-wider">
                           POPULAR

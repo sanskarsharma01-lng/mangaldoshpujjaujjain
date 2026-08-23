@@ -6,8 +6,8 @@ export const siteConfig: SiteConfig = {
   secondaryTagline: 'Vedic Rituals • Experienced Pandits • Sacred Ujjain',
 
   // ── Contact Details (update before going live) ──
-  phone: import.meta.env.VITE_PHONE_NUMBER || '+91-9876543210',
-  whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER || '919876543210',
+  phone: import.meta.env.VITE_PHONE_NUMBER || '9770581244',
+  whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER || '919770581244',
   whatsappMessage: 'Namaste, I would like to enquire about Mangal Dosh Puja in Ujjain.',
   email: import.meta.env.VITE_EMAIL || 'info@mangaldoshpujaujjain.com',
 

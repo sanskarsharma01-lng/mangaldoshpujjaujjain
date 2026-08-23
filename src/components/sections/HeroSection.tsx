@@ -105,7 +105,7 @@ const ScrollIndicator: React.FC = () => (
     transition={{ delay: 1.8, duration: 0.6 }}
     aria-hidden="true"
   >
-    <span className="text-ivory/50 text-xs tracking-widest uppercase font-inter">Scroll</span>
+    <span className="text-[#8B5555] text-xs tracking-widest uppercase font-inter">Scroll</span>
     <div className="scroll-indicator">
       <motion.div
         className="w-1 h-2 bg-gold rounded-full"
@@ -119,13 +119,13 @@ const ScrollIndicator: React.FC = () => (
 const GeometricOverlay: React.FC = () => (
   <div aria-hidden="true" className="absolute inset-0 pointer-events-none overflow-hidden">
     {/* Faint Om — top right */}
-    <div className="absolute -top-10 -right-10 text-[22rem] font-serif text-gold/[0.04] select-none leading-none">
+    <div className="absolute -top-10 -right-10 text-[22rem] font-serif text-gold/[0.06] select-none leading-none">
       ॐ
     </div>
     {/* Radial glow — center left */}
     <div
       className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full"
-      style={{ background: 'radial-gradient(circle, rgba(201,162,39,0.08) 0%, rgba(107,28,28,0.04) 40%, transparent 70%)' }}
+      style={{ background: 'radial-gradient(circle, rgba(201,162,39,0.12) 0%, rgba(107,28,28,0.04) 40%, transparent 70%)' }}
     />
     {/* Radial glow — bottom right */}
     <div
@@ -139,11 +139,11 @@ const GeometricOverlay: React.FC = () => (
     />
     {/* Dot grid */}
     <div
-      className="absolute inset-0 opacity-30"
-      style={{ backgroundImage: 'radial-gradient(rgba(201,162,39,0.12) 1px, transparent 1px)', backgroundSize: '28px 28px' }}
+      className="absolute inset-0 opacity-60"
+      style={{ backgroundImage: 'radial-gradient(rgba(201,162,39,0.08) 1px, transparent 1px)', backgroundSize: '28px 28px' }}
     />
     {/* Mandala ring SVG */}
-    <svg className="absolute right-[5%] top-1/2 -translate-y-1/2 w-72 h-72 opacity-[0.04]" viewBox="0 0 200 200" fill="none">
+    <svg className="absolute right-[5%] top-1/2 -translate-y-1/2 w-72 h-72 opacity-[0.08]" viewBox="0 0 200 200" fill="none">
       <circle cx="100" cy="100" r="95" stroke="#C9A227" strokeWidth="1" />
       <circle cx="100" cy="100" r="75" stroke="#C9A227" strokeWidth="0.5" />
       <circle cx="100" cy="100" r="55" stroke="#C9A227" strokeWidth="1" />
@@ -188,10 +188,10 @@ export const HeroSection: React.FC = () => {
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{
         background: `
-          radial-gradient(ellipse at 20% 50%, rgba(107,28,28,0.9) 0%, transparent 60%),
-          radial-gradient(ellipse at 80% 20%, rgba(74,14,14,0.8) 0%, transparent 55%),
-          radial-gradient(ellipse at 60% 80%, rgba(35,5,5,0.95) 0%, transparent 65%),
-          linear-gradient(160deg, #3D0A0A 0%, #1A0505 35%, #0D0202 65%, #1F0808 100%)
+          radial-gradient(ellipse at 25% 60%, rgba(201,162,39,0.07) 0%, transparent 55%),
+          radial-gradient(ellipse at 75% 30%, rgba(107,28,28,0.04) 0%, transparent 50%),
+          radial-gradient(ellipse at 50% 90%, rgba(201,162,39,0.05) 0%, transparent 45%),
+          linear-gradient(160deg, #FFFDF8 0%, #FDF6E8 40%, #FFFCF5 70%, #FFFDF8 100%)
         `,
       }}
     >
@@ -212,9 +212,9 @@ export const HeroSection: React.FC = () => {
             {/* Animated Badge */}
             <motion.div variants={badgeVariants}>
               <span
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/50 text-gold font-devanagari text-sm md:text-base tracking-wide select-none"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/40 text-gold font-devanagari text-sm md:text-base tracking-wide select-none"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(201,162,39,0.15) 0%, rgba(201,162,39,0.05) 100%)',
+                  background: 'rgba(201,162,39,0.10)',
                   backdropFilter: 'blur(8px)',
                 }}
               >
@@ -232,7 +232,7 @@ export const HeroSection: React.FC = () => {
             {/* H1 */}
             <motion.h1
               variants={fadeUpVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-poppins font-bold text-ivory leading-[1.1] tracking-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-poppins font-bold text-[#1A0808] leading-[1.1] tracking-tight"
             >
               Mangal Dosh{' '}
               <span
@@ -271,11 +271,11 @@ export const HeroSection: React.FC = () => {
             {/* Subtitle */}
             <motion.p
               variants={fadeUpVariants}
-              className="text-ivory/80 text-lg md:text-xl max-w-xl font-inter leading-relaxed"
+              className="text-[#5C3D3D] text-lg md:text-xl max-w-xl font-inter leading-relaxed"
             >
               Restore cosmic harmony and remove planetary afflictions with authentic Vedic Mangal
               Dosh puja, performed by experienced Pandits at the sacred city of{' '}
-              <strong className="text-gold/90 font-semibold">Ujjain</strong> — the seat of Lord
+              <strong className="text-gold-dark font-semibold">Ujjain</strong> — the seat of Lord
               Mangalnath.
             </motion.p>
 
@@ -298,7 +298,7 @@ export const HeroSection: React.FC = () => {
 
               <button
                 onClick={handleWhatsApp}
-                className="btn-outline-ivory text-base px-8 py-4 w-full sm:w-auto"
+                className="btn-outline-gold text-base px-8 py-4 w-full sm:w-auto"
                 aria-label="Talk to Pandit Ji on WhatsApp"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -322,7 +322,7 @@ export const HeroSection: React.FC = () => {
                   key={item}
                   variants={trustItemVariants}
                   role="listitem"
-                  className="flex items-center gap-2 text-ivory/75 text-sm font-inter"
+                  className="flex items-center gap-2 text-[#4A2828] text-sm font-inter"
                 >
                   <CheckIcon />
                   <span>{item}</span>
@@ -340,7 +340,7 @@ export const HeroSection: React.FC = () => {
       <div
         aria-hidden="true"
         className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none"
-        style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(255,249,240,0.08) 70%, rgba(255,249,240,0.15) 100%)' }}
+        style={{ background: 'linear-gradient(to bottom, transparent 0%, rgba(255,253,248,0.5) 70%, rgba(255,253,248,0.8) 100%)' }}
       />
     </section>
   );

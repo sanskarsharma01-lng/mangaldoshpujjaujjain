@@ -57,7 +57,7 @@ export const UjjainLocation: React.FC = () => {
           {/* Right Column: Decorative Sacred representation */}
           <div className="lg:col-span-5 flex justify-center">
             <ScrollReveal direction="right" delay={0.2} className="w-full max-w-sm">
-              <div className="relative aspect-video sm:aspect-square rounded-3xl bg-primary shadow-primary-lg overflow-hidden border-2 border-gold/30 flex items-center justify-center p-8">
+              <div className="relative aspect-video sm:aspect-square rounded-3xl bg-gradient-to-br from-[#FDF0D8] to-[#F5E0B8] shadow-gold overflow-hidden border-2 border-gold/35 flex items-center justify-center p-8">
                 {/* Visual patterns */}
                 <div className="absolute inset-0 pattern-grid opacity-10 pointer-events-none" />
                 <div className="absolute inset-8 border border-gold/20 rounded-full animate-spin-slow opacity-60 pointer-events-none" />
@@ -65,15 +65,15 @@ export const UjjainLocation: React.FC = () => {
                 {/* Visual center */}
                 <div className="relative z-10 text-center space-y-2">
                   <span className="text-gold text-6xl block select-none" aria-hidden="true">🔱</span>
-                  <p className="text-ivory font-poppins font-bold text-xl uppercase tracking-wider">UJJAIN DHAM</p>
-                  <p className="text-gold/80 text-xs tracking-widest">Shipra River Coast</p>
+                  <p className="text-primary font-poppins font-bold text-xl uppercase tracking-wider">UJJAIN DHAM</p>
+                  <p className="text-primary/80 text-xs tracking-widest">Shipra River Coast</p>
                 </div>
 
                 {/* Corner highlights */}
-                <div className="absolute top-4 left-4 text-gold/30">🕉</div>
-                <div className="absolute top-4 right-4 text-gold/30">🕉</div>
-                <div className="absolute bottom-4 left-4 text-gold/30">🕉</div>
-                <div className="absolute bottom-4 right-4 text-gold/30">🕉</div>
+                <div className="absolute top-4 left-4 text-gold/60">🕉</div>
+                <div className="absolute top-4 right-4 text-gold/60">🕉</div>
+                <div className="absolute bottom-4 left-4 text-gold/60">🕉</div>
+                <div className="absolute bottom-4 right-4 text-gold/60">🕉</div>
               </div>
             </ScrollReveal>
           </div>

@@ -20,11 +20,19 @@ export const BookingProvider: React.FC<{ children: React.ReactNode }> = ({ child
   const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
 
   const openBooking = useCallback((pujaId?: string, packageId?: string) => {
-    setSelectedPuja(pujaId ?? null);
-    setSelectedPackage(packageId ?? null);
-    setIsOpen(true);
-    // Prevent body scroll when modal is open
-    document.body.style.overflow = 'hidden';
+    let message = 'Namaste Pandit Ji, I would like to enquire about Puja services in Ujjain.';
+    if (pujaId) {
+      const formattedPuja = pujaId
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+      message = `Namaste Pandit Ji, I would like to book the ${formattedPuja}.`;
+      if (packageId) {
+        message += ` (Package: ${packageId.charAt(0).toUpperCase() + packageId.slice(1)})`;
+      }
+    }
+    const url = `https://wa.me/919770581244?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank', 'noopener,noreferrer');
   }, []);
 
   const closeBooking = useCallback(() => {

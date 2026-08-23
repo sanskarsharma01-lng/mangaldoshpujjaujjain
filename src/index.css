@@ -13,6 +13,8 @@
     --ivory: #FFF9F0;
     --cream: #F5EDD8;
     --saffron: #E65100;
+    --hero-bg: #FFFDF8;
+    --section-warm: #FDF8EF;
   }
 
   * {
@@ -172,7 +174,7 @@
 
   /* Scroll indicator */
   .scroll-indicator {
-    @apply w-6 h-10 border-2 border-ivory/50 rounded-full flex items-start justify-center pt-2;
+    @apply w-6 h-10 border-2 border-primary/30 rounded-full flex items-start justify-center pt-2;
   }
 
   /* Mandala decoration */
@@ -183,6 +185,17 @@
 
 /* ─── Utilities ──────────────────────────────── */
 @layer utilities {
+  .bg-hero-light {
+    background: linear-gradient(160deg, #FFFDF8 0%, #FDF6E8 50%, #FFFDF8 100%);
+  }
+  .section-warm {
+    background-color: #FDF8EF;
+  }
+  .page-banner-light {
+    background: linear-gradient(135deg, #FDF6E8 0%, #FFFDF8 40%, #FDF6E8 100%);
+    border-bottom: 1px solid rgba(201, 162, 39, 0.25);
+  }
+
   .text-balance {
     text-wrap: balance;
   }

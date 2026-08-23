@@ -58,7 +58,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, index }) => {
     trackEvent('package_selected', {
       package_id: pkg.id,
       package_name: pkg.name,
-      package_price: pkg.price,
+      package_price: pkg.price ?? 0,
     });
     trackEvent('book_puja_clicked', {
       source: 'packages_section',
@@ -86,7 +86,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, index }) => {
       `}
       style={borderTopStyle}
       whileHover={!isHighlighted ? { y: -6 } : { y: -3 }}
-      aria-label={`${pkg.name} package — ${pkg.priceDisplay}`}
+      aria-label={`${pkg.name} package`}
     >
       {/* Popular Badge */}
       {pkg.badge && (
@@ -121,20 +121,6 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, index }) => {
           {pkg.id === 'standard' && '।। मंगल भात पूजा ।।'}
           {pkg.id === 'premium' && '।। सम्पूर्ण मंगल दोष पूजा ।।'}
         </p>
-
-        {/* Price */}
-        <div className="mb-1 flex items-end gap-2">
-          <span className="text-5xl font-poppins font-bold text-gold leading-none">
-            {pkg.priceDisplay}
-          </span>
-          <span
-            className={`mb-1 text-sm font-medium ${
-              isHighlighted ? 'text-ivory/60' : 'text-text-muted'
-            }`}
-          >
-            onwards
-          </span>
-        </div>
 
         {/* Gold divider */}
         <div
@@ -183,7 +169,7 @@ const PackageCard: React.FC<PackageCardProps> = ({ pkg, index }) => {
                 : 'bg-primary text-ivory hover:bg-primary-dark hover:shadow-primary focus-visible:ring-primary'
             }
           `}
-          aria-label={`${pkg.cta} — ${pkg.name} package at ${pkg.priceDisplay}`}
+          aria-label={`${pkg.cta} — ${pkg.name} package`}
         >
           {pkg.cta}
         </button>
@@ -297,8 +283,7 @@ export const PujaPackages: React.FC = () => {
               d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
             />
           </svg>
-          Prices are indicative and may vary based on specific requirements. Final
-          confirmation and details will be shared via WhatsApp after booking.
+          Booking confirmation, scheduling, and ceremony details will be shared directly via WhatsApp.
         </motion.p>
       </div>
     </section>

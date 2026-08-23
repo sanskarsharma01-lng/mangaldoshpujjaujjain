@@ -5,8 +5,6 @@ export const packages: Package[] = [
   {
     id: 'basic',
     name: 'Basic',
-    price: 1500,
-    priceDisplay: '₹1,500',
     description: 'Essential Mangal Shanti Puja with traditional rituals.',
     highlighted: false,
     cta: 'Book Now',
@@ -21,8 +19,6 @@ export const packages: Package[] = [
   {
     id: 'standard',
     name: 'Standard',
-    price: 3100,
-    priceDisplay: '₹3,100',
     description: 'Complete Mangal Bhat Puja with Graha Shanti and booking confirmation.',
     highlighted: true,
     badge: 'MOST POPULAR',
@@ -40,8 +36,6 @@ export const packages: Package[] = [
   {
     id: 'premium',
     name: 'Premium',
-    price: 11000,
-    priceDisplay: '₹11,000',
     description: 'Complete premium Mangal Dosh Puja with extended Vedic rituals.',
     highlighted: false,
     cta: 'Book Premium Puja',

@@ -1,57 +1,18 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as zod from 'zod';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import React from 'react';
+import { MapPin, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { siteConfig } from '../data/siteConfig';
-import { trackEvent } from '../lib/analytics';
 import { SEOHead } from '../components/seo/SEOHead';
 import { Breadcrumb } from '../components/seo/Breadcrumb';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import FinalCTA from '../components/sections/FinalCTA';
 
-const contactSchema = zod.object({
-  name: zod.string().min(2, 'Name must be at least 2 characters'),
-  mobile: zod.string().regex(/^\d{10}$/, 'Mobile number must be exactly 10 digits'),
-  email: zod.string().email('Invalid email address').optional().or(zod.literal('')),
-  subject: zod.string().min(1, 'Please choose a subject'),
-  message: zod.string().min(10, 'Message must be at least 10 characters'),
-});
-
-type ContactForm = zod.infer<typeof contactSchema>;
-
 export const ContactPage: React.FC = () => {
   const { t } = useLanguage();
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<ContactForm>({
-    resolver: zodResolver(contactSchema),
-    defaultValues: {
-      subject: 'Booking Enquiry',
-    },
-  });
-
-  const onSubmit = (data: ContactForm) => {
-    setLoading(true);
-    trackEvent('contact_submitted', { subject: data.subject });
-    
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-      reset();
-    }, 1200);
-  };
 
   const canonical = `${siteConfig.seo.siteUrl}/contact`;
   const title = `Contact Us | Mangal Dosh Puja Booking Ujjain | ${siteConfig.name}`;
-  const description = `Contact our team to book your Mangal Dosh and Mangal Bhat Puja in Ujjain. Call, WhatsApp, email, or fill out our online form for free guidance.`;
+  const description = `Contact our team to book your Mangal Dosh and Mangal Bhat Puja in Ujjain. Connect directly via WhatsApp for free guidance.`;
 
   return (
     <>
@@ -71,14 +32,14 @@ export const ContactPage: React.FC = () => {
         </div>
 
         {/* Compact Hero Banner */}
-        <div className="bg-primary text-ivory py-12 md:py-16 text-center relative overflow-hidden">
-          <div className="absolute inset-0 pattern-dots opacity-10 pointer-events-none" />
+        <div className="page-banner-light py-12 md:py-16 text-center relative overflow-hidden">
+          <div className="absolute inset-0 pattern-dots opacity-[0.07] pointer-events-none" />
           <div className="container-custom relative z-10 space-y-2">
             <span className="text-gold font-devanagari text-base tracking-widest block">🕉 संपर्क सूत्र 🕉</span>
-            <h1 className="text-3xl md:text-5xl font-poppins font-bold">
+            <h1 className="text-3xl md:text-5xl font-poppins font-bold text-primary">
               {t('nav.contact')}
             </h1>
-            <p className="text-ivory/70 text-sm md:text-base max-w-xl mx-auto font-light">
+            <p className="text-text-muted text-sm md:text-base max-w-xl mx-auto font-light">
               We are here to assist you with booking enquiries, date calculations, and ceremony details.
             </p>
           </div>
@@ -89,100 +50,30 @@ export const ContactPage: React.FC = () => {
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
               
-              {/* Left Column: Form */}
+              {/* Left Column: WhatsApp CTA card */}
               <div className="lg:col-span-7">
-                <ScrollReveal direction="up" className="card-glass">
-                  <h2 className="text-2xl font-poppins font-bold text-primary mb-6">Send an Enquiry</h2>
+                <ScrollReveal direction="up" className="card-glass p-8 text-center space-y-6">
+                  <span className="text-6xl block" aria-hidden="true">💬</span>
+                  <h2 className="text-3xl font-poppins font-bold text-primary">Chat on WhatsApp</h2>
+                  <p className="text-text-muted leading-relaxed max-w-md mx-auto">
+                    For bookings, package enquiries, date calculations, and spiritual guidance, you can connect directly with our Pandit Ji on WhatsApp.
+                  </p>
                   
-                  {submitted && (
-                    <div className="mb-6 p-4 rounded-xl bg-gold/10 border border-gold/25 text-warm-brown text-sm font-semibold animate-fade-in">
-                      🙏 Thank you! Your enquiry has been received. Our team will contact you shortly.
-                    </div>
-                  )}
+                  <div className="p-4 bg-gold/10 border border-gold/20 rounded-xl text-warm-brown text-sm font-semibold max-w-sm mx-auto">
+                    Our WhatsApp Support is available 24/7.
+                  </div>
 
-                  <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {/* Name */}
-                      <div>
-                        <label htmlFor="con-name" className="input-label">Full Name *</label>
-                        <input
-                          id="con-name"
-                          type="text"
-                          {...register('name')}
-                          className="input-field"
-                          placeholder="Your Name"
-                          disabled={loading}
-                        />
-                        {errors.name && <p className="text-red-600 text-xs mt-1">{errors.name.message}</p>}
-                      </div>
-
-                      {/* Mobile */}
-                      <div>
-                        <label htmlFor="con-mobile" className="input-label">Mobile Number *</label>
-                        <input
-                          id="con-mobile"
-                          type="tel"
-                          {...register('mobile')}
-                          className="input-field"
-                          placeholder="10-digit mobile number"
-                          disabled={loading}
-                        />
-                        {errors.mobile && <p className="text-red-600 text-xs mt-1">{errors.mobile.message}</p>}
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {/* Email */}
-                      <div>
-                        <label htmlFor="con-email" className="input-label">Email Address (optional)</label>
-                        <input
-                          id="con-email"
-                          type="email"
-                          {...register('email')}
-                          className="input-field"
-                          placeholder="email@example.com"
-                          disabled={loading}
-                        />
-                        {errors.email && <p className="text-red-600 text-xs mt-1">{errors.email.message}</p>}
-                      </div>
-
-                      {/* Subject */}
-                      <div>
-                        <label htmlFor="con-subject" className="input-label">Enquiry Subject *</label>
-                        <select id="con-subject" {...register('subject')} className="input-field" disabled={loading}>
-                          <option>Booking Enquiry</option>
-                          <option>Horoscope Check Query</option>
-                          <option>Puja Packages Query</option>
-                          <option>Travel & Lodging Query</option>
-                          <option>General Query</option>
-                        </select>
-                        {errors.subject && <p className="text-red-600 text-xs mt-1">{errors.subject.message}</p>}
-                      </div>
-                    </div>
-
-                    {/* Message */}
-                    <div>
-                      <label htmlFor="con-msg" className="input-label">Your Message *</label>
-                      <textarea
-                        id="con-msg"
-                        {...register('message')}
-                        rows={4}
-                        placeholder="Write your message here..."
-                        className="input-field resize-none text-sm"
-                        disabled={loading}
-                      />
-                      {errors.message && <p className="text-red-600 text-xs mt-1">{errors.message.message}</p>}
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="btn-primary w-full py-3 h-12 flex items-center justify-center gap-2"
-                      disabled={loading}
+                  <div className="pt-2">
+                    <a
+                      href={`https://wa.me/919770581244?text=${encodeURIComponent('Namaste Pandit Ji, I would like to enquire about Mangal Dosh Puja in Ujjain.')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-whatsapp inline-flex items-center justify-center gap-2 px-8 py-4 text-base shadow-md w-full sm:w-auto"
                     >
-                      {loading ? 'Sending...' : 'Send Message'}
-                    </button>
-
-                  </form>
+                      <svg className="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.73-1.45L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.799.002-2.63-1.023-5.101-2.885-6.97C16.579 1.968 14.12 1.95 12.014 1.95c-5.439 0-9.865 4.37-9.869 9.8.004 1.76.495 3.486 1.42 5.03L2.59 21.05l4.057-1.896zm12.164-5.328c-.287-.144-1.702-.84-1.965-.936-.263-.096-.456-.144-.648.144-.192.288-.744.936-.912 1.128-.168.192-.336.216-.624.072-1.258-.631-2.15-1.093-3.003-2.553-.223-.383.223-.356.639-1.187.072-.144.036-.264-.018-.372-.054-.108-.456-1.104-.624-1.512-.164-.396-.348-.342-.48-.342h-.408c-.144 0-.384.054-.585.276-.201.222-.768.75-.768 1.83 0 1.08.783 2.124.894 2.274.111.15 1.54 2.352 3.731 3.3 1.259.546 1.884.6 2.585.496.505-.075 1.702-.696 1.944-1.37.24-.674.24-1.253.168-1.37-.072-.116-.264-.21-.552-.354z"/></svg>
+                      Connect on WhatsApp
+                    </a>
+                  </div>
                 </ScrollReveal>
               </div>
 
@@ -207,24 +98,12 @@ export const ContactPage: React.FC = () => {
 
                     <li className="flex items-start gap-4">
                       <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold flex-shrink-0">
-                        <Phone className="w-5 h-5" />
+                        <MessageCircle className="w-5 h-5" />
                       </div>
                       <div className="space-y-1">
-                        <p className="font-bold text-text-dark">Call Support:</p>
-                        <a href={`tel:${siteConfig.phone}`} className="text-primary hover:underline font-semibold">
-                          {siteConfig.phone}
-                        </a>
-                      </div>
-                    </li>
-
-                    <li className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold flex-shrink-0">
-                        <Mail className="w-5 h-5" />
-                      </div>
-                      <div className="space-y-1">
-                        <p className="font-bold text-text-dark">Email Enquiries:</p>
-                        <a href={`mailto:${siteConfig.email}`} className="text-primary hover:underline break-all font-semibold">
-                          {siteConfig.email}
+                        <p className="font-bold text-text-dark">WhatsApp Contact:</p>
+                        <a href={`https://wa.me/919770581244`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
+                          +91 9770581244
                         </a>
                       </div>
                     </li>

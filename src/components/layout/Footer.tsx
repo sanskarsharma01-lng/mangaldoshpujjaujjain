@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { MapPin, MessageCircle } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { siteConfig } from '../../data/siteConfig';
 import { trackEvent } from '../../lib/analytics';
@@ -8,12 +8,8 @@ import { trackEvent } from '../../lib/analytics';
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
 
-  const handleContactClick = (type: 'phone' | 'email' | 'whatsapp') => {
-    if (type === 'whatsapp') {
-      trackEvent('whatsapp_clicked', { source: 'footer' });
-    } else if (type === 'phone') {
-      trackEvent('call_clicked', { source: 'footer' });
-    }
+  const handleContactClick = () => {
+    trackEvent('whatsapp_clicked', { source: 'footer' });
   };
 
   return (
@@ -158,22 +154,14 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <a
-                  href={`tel:${siteConfig.phone}`}
-                  onClick={() => handleContactClick('phone')}
+                  href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleContactClick}
                   className="flex items-center gap-3 text-ivory/80 hover:text-gold transition-colors duration-200"
                 >
-                  <Phone className="w-5 h-5 text-gold flex-shrink-0" />
-                  <span>{siteConfig.phone}</span>
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${siteConfig.email}`}
-                  onClick={() => handleContactClick('email')}
-                  className="flex items-center gap-3 text-ivory/80 hover:text-gold transition-colors duration-200"
-                >
-                  <Mail className="w-5 h-5 text-gold flex-shrink-0" />
-                  <span className="break-all">{siteConfig.email}</span>
+                  <MessageCircle className="w-5 h-5 text-gold flex-shrink-0" />
+                  <span>WhatsApp: +91 9770581244</span>
                 </a>
               </li>
             </ul>

@@ -78,16 +78,16 @@ export const BlogPostPage: React.FC = () => {
         </div>
 
         {/* Article Banner Header */}
-        <header className="bg-primary text-ivory py-16 relative overflow-hidden">
-          <div className="absolute inset-0 pattern-dots opacity-10 pointer-events-none" />
+        <header className="page-banner-light py-16 relative overflow-hidden">
+          <div className="absolute inset-0 pattern-dots opacity-[0.07] pointer-events-none" />
           <div className="container-custom relative z-10 max-w-4xl mx-auto space-y-4 text-center">
-            <span className="badge-gold bg-gold/15 border-gold/40 text-gold uppercase text-xs tracking-wider">
+            <span className="badge-gold bg-gold/15 border-gold/40 text-gold-dark uppercase text-xs tracking-wider">
               {post.category}
             </span>
-            <h1 className="text-3xl md:text-5xl font-poppins font-bold leading-tight max-w-3xl mx-auto text-balance">
+            <h1 className="text-3xl md:text-5xl font-poppins font-bold leading-tight max-w-3xl mx-auto text-balance text-primary">
               {post.title}
             </h1>
-            <div className="text-xs md:text-sm text-ivory/60 flex items-center justify-center gap-3 pt-2">
+            <div className="text-xs md:text-sm text-text-muted flex items-center justify-center gap-3 pt-2">
               <span>By <strong>{post.author}</strong></span>
               <span>•</span>
               <time dateTime={post.publishedDate}>{post.publishedDate}</time>

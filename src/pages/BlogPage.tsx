@@ -40,14 +40,14 @@ export const BlogPage: React.FC = () => {
         </div>
 
         {/* Compact Hero Banner */}
-        <div className="bg-primary text-ivory py-12 md:py-16 text-center relative overflow-hidden">
-          <div className="absolute inset-0 pattern-dots opacity-10 pointer-events-none" />
+        <div className="page-banner-light py-12 md:py-16 text-center relative overflow-hidden">
+          <div className="absolute inset-0 pattern-dots opacity-[0.07] pointer-events-none" />
           <div className="container-custom relative z-10 space-y-2">
             <span className="text-gold font-devanagari text-base tracking-widest block">🕉 वैदिक ज्ञान गंगा 🕉</span>
-            <h1 className="text-3xl md:text-5xl font-poppins font-bold">
+            <h1 className="text-3xl md:text-5xl font-poppins font-bold text-primary">
               Knowledge & Guides
             </h1>
-            <p className="text-ivory/70 text-sm md:text-base max-w-xl mx-auto font-light">
+            <p className="text-text-muted text-sm md:text-base max-w-xl mx-auto font-light">
               Explore traditional scriptural guides and practical advice to prepare for your spiritual journey to Ujjain.
             </p>
           </div>
