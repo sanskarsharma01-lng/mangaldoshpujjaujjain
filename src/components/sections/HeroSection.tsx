@@ -194,17 +194,42 @@ export const HeroSection: React.FC = () => {
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{
         background: `
-          radial-gradient(ellipse at 25% 60%, rgba(201,162,39,0.07) 0%, transparent 55%),
+          radial-gradient(ellipse at 25% 60%, rgba(224,120,24,0.10) 0%, transparent 55%),
           radial-gradient(ellipse at 75% 30%, rgba(107,28,28,0.04) 0%, transparent 50%),
-          radial-gradient(ellipse at 50% 90%, rgba(201,162,39,0.05) 0%, transparent 45%),
-          linear-gradient(160deg, #FFFDF8 0%, #FDF6E8 40%, #FFFCF5 70%, #FFFDF8 100%)
+          radial-gradient(ellipse at 50% 90%, rgba(215,154,36,0.08) 0%, transparent 45%),
+          linear-gradient(160deg, #FFFDF8 0%, #FFF1DB 40%, #FFFCF5 70%, #FFF8ED 100%)
         `,
       }}
     >
       <GeometricOverlay />
 
-      {/* Floating diya particles */}
-      {!prefersReducedMotion && DIYA_PARTICLES.map((p, i) => <DivaParticle key={i} {...p} />)}
+      {/* Angareshwar Mahadev Banner — full-width background */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full pointer-events-none overflow-hidden"
+      >
+        <img
+          src="/angareshwar-mahadev-banner-full.jpg"
+          alt=""
+          className="w-full h-full object-cover object-center"
+          style={{ opacity: 0.45 }}
+          loading="eager"
+        />
+        {/* Responsive overlay: solid-ish on mobile for readability, left-to-right fade on desktop to show the Shivlingam clearly on the right */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to right, rgba(255, 253, 248, 0.95) 0%, rgba(255, 253, 248, 0.75) 45%, rgba(255, 253, 248, 0.25) 75%, rgba(255, 253, 248, 0.05) 100%)',
+          }}
+        />
+        {/* Soft bottom fade to transition to the next section */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-32"
+          style={{
+            background: 'linear-gradient(to bottom, transparent 0%, rgba(255, 253, 248, 0.9) 100%)',
+          }}
+        />
+      </div>
 
       {/* Main content */}
       <div className="relative z-10 container-custom w-full py-28 md:py-32 lg:py-36">
@@ -238,33 +263,52 @@ export const HeroSection: React.FC = () => {
             {/* H1 */}
             <motion.h1
               variants={fadeUpVariants}
-              className="text-5xl md:text-6xl lg:text-7xl font-poppins font-bold text-[#1A0808] leading-[1.1] tracking-tight"
+              className="text-5xl md:text-6xl lg:text-7xl font-poppins font-bold text-[#1A0808] leading-[1.25] tracking-tight py-2 overflow-visible"
             >
-              {language === 'hi' ? 'उज्जैन में ' : 'Mangal Dosh '}{' '}
-              <span
-                className="relative inline-block"
-                style={{
-                  background: 'linear-gradient(135deg, #C9A227 0%, #E5C35A 50%, #C9A227 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                {language === 'hi' ? 'मंगल दोष पूजा' : 'Puja'}
-              </span>{' '}
-              <br className="hidden sm:block" />
-              {language === 'hi' ? '' : 'in '}{' '}
-              <span
-                className="relative inline-block"
-                style={{
-                  background: 'linear-gradient(135deg, #E5C35A 0%, #C9A227 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                }}
-              >
-                {language === 'hi' ? 'उज्जैन' : 'Ujjain'}
-              </span>
+              {language === 'hi' ? (
+                <>
+                  उज्जैन में{' '}
+                  <span
+                    className="relative inline-block py-2 overflow-visible"
+                    style={{
+                      background: 'linear-gradient(135deg, #B9570F 0%, #E07818 50%, #F2B14A 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    मंगल दोष पूजा
+                  </span>
+                </>
+              ) : (
+                <>
+                  Mangal Dosh{' '}
+                  <span
+                    className="relative inline-block py-2 overflow-visible"
+                    style={{
+                      background: 'linear-gradient(135deg, #B9570F 0%, #E07818 50%, #F2B14A 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Puja
+                  </span>{' '}
+                  <br className="hidden sm:block" />
+                  in{' '}
+                  <span
+                    className="relative inline-block py-2 overflow-visible"
+                    style={{
+                      background: 'linear-gradient(135deg, #F2B14A 0%, #D79A24 100%)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
+                    Ujjain
+                  </span>
+                </>
+              )}
             </motion.h1>
 
             {/* Decorative gold line */}

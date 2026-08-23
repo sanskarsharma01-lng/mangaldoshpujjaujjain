@@ -27,23 +27,44 @@ export const PanditSection: React.FC = () => {
             {/* Left Column: Portrait representation */}
             <div className="lg:col-span-5 flex justify-center">
               <ScrollReveal direction="left" delay={0.2} className="w-full max-w-sm">
-                <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-[#FDF0D8] to-[#F5E0B8] border-2 border-gold/35 shadow-gold flex items-center justify-center p-8 overflow-hidden">
-                  <div className="absolute inset-4 border border-gold/20 rounded-full opacity-60 animate-spin-slow pointer-events-none" />
-                  
-                  {/* Portrait Placeholder Icon */}
-                  <div className="relative z-10 text-center space-y-4">
-                    <span className="text-gold text-7xl block select-none" aria-hidden="true">👨‍🦳</span>
-                    <div>
-                      <p className="text-primary font-poppins font-bold text-2xl tracking-wide">{pandit.name}</p>
-                      <p className="text-primary/80 text-sm tracking-wider uppercase mt-1">{pandit.experience} {isHindi ? 'वर्षों का अनुभव' : 'Experience'}</p>
-                    </div>
-                  </div>
+                <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-[#FDF0D8] to-[#F5E0B8] border-2 border-gold/35 shadow-gold overflow-hidden group">
+                  {pandit.image ? (
+                    <>
+                      <img
+                        src={pandit.image}
+                        alt={isHindi ? `पंडित ${pandit.name}` : `Pandit ${pandit.name}`}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      {/* Name overlay */}
+                      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent pt-12 pb-5 px-6 text-center">
+                        <p className="text-white font-poppins font-bold text-xl tracking-wide">
+                          {isHindi ? 'पंडित गोविंद जी शर्मा' : `Pandit ${pandit.name}`}
+                        </p>
+                        <p className="text-gold text-xs tracking-wider uppercase mt-1">
+                          {pandit.experience} {isHindi ? 'वर्षों का अनुभव' : 'Experience'}
+                        </p>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="absolute inset-4 border border-gold/20 rounded-full opacity-60 animate-spin-slow pointer-events-none" />
+                      
+                      {/* Portrait Placeholder Icon */}
+                      <div className="relative z-10 text-center space-y-4">
+                        <span className="text-gold text-7xl block select-none" aria-hidden="true">👨‍🦳</span>
+                        <div>
+                          <p className="text-primary font-poppins font-bold text-2xl tracking-wide">{pandit.name}</p>
+                          <p className="text-primary/80 text-sm tracking-wider uppercase mt-1">{pandit.experience} {isHindi ? 'वर्षों का अनुभव' : 'Experience'}</p>
+                        </div>
+                      </div>
 
-                  {/* Corner ornaments */}
-                  <div className="absolute top-4 left-4 text-gold/60">🕉</div>
-                  <div className="absolute top-4 right-4 text-gold/60">🕉</div>
-                  <div className="absolute bottom-4 left-4 text-gold/60">🕉</div>
-                  <div className="absolute bottom-4 right-4 text-gold/60">🕉</div>
+                      {/* Corner ornaments */}
+                      <div className="absolute top-4 left-4 text-gold/60">🕉</div>
+                      <div className="absolute top-4 right-4 text-gold/60">🕉</div>
+                      <div className="absolute bottom-4 left-4 text-gold/60">🕉</div>
+                      <div className="absolute bottom-4 right-4 text-gold/60">🕉</div>
+                    </>
+                  )}
                 </div>
               </ScrollReveal>
             </div>

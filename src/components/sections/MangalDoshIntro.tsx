@@ -61,28 +61,24 @@ export const MangalDoshIntro: React.FC = () => {
             </ScrollReveal>
           </div>
 
-          {/* Right Column: Decorative Sacred Visual */}
+          {/* Right Column: Original Mangalnath Temple Image */}
           <div className="lg:col-span-5 flex justify-center">
             <ScrollReveal direction="right" delay={0.2} className="w-full max-w-sm">
-              <div className="relative aspect-square rounded-3xl bg-gradient-to-br from-[#FDF6E8] to-[#F5E8CE] border-2 border-gold/30 shadow-gold flex items-center justify-center p-8 overflow-hidden group">
-                {/* Rotating decorative mandala rings */}
-                <div className="absolute inset-4 border border-gold/15 rounded-full animate-spin-slow opacity-60 pointer-events-none" />
-                <div className="absolute inset-10 border border-dashed border-gold/10 rounded-full animate-spin-slow opacity-40 pointer-events-none [animation-direction:reverse]" />
-                
-                {/* Inner glowing core */}
-                <div className="relative z-10 text-center space-y-4">
-                  <span className="text-gold text-8xl block select-none drop-shadow-[0_0_15px_rgba(201,162,39,0.4)] transition-transform duration-500 group-hover:scale-105" aria-hidden="true">🕉</span>
-                  <div className="space-y-1">
-                    <p className="text-primary font-serif text-xl tracking-wider font-semibold">श्री मंगलनाथाय नमः</p>
-                    <p className="text-primary text-xs tracking-widest uppercase">{language === 'hi' ? 'पवित्र उज्जैन धाम' : 'Sacred Ujjain Dham'}</p>
-                  </div>
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-gold/30 shadow-gold group">
+                <img
+                  src="/mangalnath-temple.jpg"
+                  alt={language === 'hi' ? 'मंगलनाथ मंदिर उज्जैन' : 'Mangalnath Temple Ujjain'}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Text overlay at the bottom */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent pt-12 pb-6 px-6 text-center">
+                  <p className="text-white font-serif text-xl tracking-wider font-semibold drop-shadow-md">
+                    श्री मंगलनाथाय नमः
+                  </p>
+                  <p className="text-gold text-xs tracking-widest uppercase font-medium mt-1">
+                    {language === 'hi' ? 'पवित्र उज्जैन धाम' : 'Sacred Ujjain Dham'}
+                  </p>
                 </div>
-
-                {/* Decorative corners */}
-                <div className="absolute top-4 left-4 text-gold/60 text-xs">🔱</div>
-                <div className="absolute top-4 right-4 text-gold/60 text-xs">🔱</div>
-                <div className="absolute bottom-4 left-4 text-gold/60 text-xs">🔱</div>
-                <div className="absolute bottom-4 right-4 text-gold/60 text-xs">🔱</div>
               </div>
             </ScrollReveal>
           </div>

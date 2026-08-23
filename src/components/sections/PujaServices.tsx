@@ -46,12 +46,18 @@ export const PujaServices: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <Link
                   to={`/${service.slug}`}
                   className="inline-flex items-center text-gold hover:text-gold-dark text-sm font-semibold tracking-wide transition-colors duration-200"
                 >
                   {t('services.viewDetails')}
+                </Link>
+                <Link
+                  to={`/${service.slug}`}
+                  className="btn-primary inline-flex items-center justify-center px-4 py-2 text-sm"
+                >
+                  {t('services.bookNow')}
                 </Link>
               </div>
             </article>

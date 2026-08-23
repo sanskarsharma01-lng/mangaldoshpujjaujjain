@@ -6,15 +6,15 @@
 /* ─── Base Layer ─────────────────────────────── */
 @layer base {
   :root {
-    --primary: #6B1C1C;
-    --primary-dark: #4A0E0E;
-    --gold: #C9A227;
-    --gold-light: #E5C35A;
+    --primary: #641B1B;
+    --primary-dark: #3F0D0D;
+    --gold: #D79A24;
+    --gold-light: #F2C14E;
     --ivory: #FFF9F0;
-    --cream: #F5EDD8;
-    --saffron: #E65100;
-    --hero-bg: #FFFDF8;
-    --section-warm: #FDF8EF;
+    --cream: #F7E7C6;
+    --saffron: #E07818;
+    --hero-bg: #FFF8ED;
+    --section-warm: #FFF3E0;
   }
 
   * {
@@ -67,7 +67,7 @@
 
   /* Section title pattern */
   .section-label {
-    @apply text-gold text-sm font-semibold tracking-widest uppercase mb-3 flex items-center gap-2;
+    @apply text-saffron text-sm font-semibold tracking-widest uppercase mb-3 flex items-center gap-2;
   }
 
   .section-title {
@@ -88,7 +88,7 @@
   }
 
   .btn-gold {
-    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-gold text-primary font-semibold rounded-xl transition-all duration-300 hover:bg-gold-light hover:shadow-gold hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 bg-saffron text-white font-semibold rounded-xl transition-all duration-300 hover:bg-saffron-light hover:shadow-gold hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-saffron focus-visible:ring-offset-2;
   }
 
   .btn-outline-gold {
@@ -141,7 +141,7 @@
   }
 
   .badge-saffron {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-saffron/10 text-saffron border border-saffron/20 rounded-full text-sm font-medium;
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-saffron/10 text-saffron border border-saffron/30 rounded-full text-sm font-medium;
   }
 
   /* Timeline step */
@@ -165,7 +165,7 @@
 
   /* Gradient text */
   .text-gradient-gold {
-    @apply bg-gold-gradient bg-clip-text text-transparent;
+    @apply bg-saffron-gradient bg-clip-text text-transparent;
   }
 
   .text-gradient-primary {
@@ -186,13 +186,13 @@
 /* ─── Utilities ──────────────────────────────── */
 @layer utilities {
   .bg-hero-light {
-    background: linear-gradient(160deg, #FFFDF8 0%, #FDF6E8 50%, #FFFDF8 100%);
+    background: linear-gradient(160deg, #FFFDF8 0%, #FFF1DB 48%, #FFF8ED 100%);
   }
   .section-warm {
-    background-color: #FDF8EF;
+    background-color: #FFF3E0;
   }
   .page-banner-light {
-    background: linear-gradient(135deg, #FDF6E8 0%, #FFFDF8 40%, #FDF6E8 100%);
+    background: linear-gradient(135deg, #FFF0D8 0%, #FFFDF8 42%, #FFE8C2 100%);
     border-bottom: 1px solid rgba(201, 162, 39, 0.25);
   }
 
