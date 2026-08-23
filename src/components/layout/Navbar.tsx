@@ -26,23 +26,26 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { label: 'Home', labelHi: 'होम', href: '/' },
+  { label: 'About Us', labelHi: 'हमारे बारे में', href: '/about' },
   {
-    label: 'Mangal Dosh Puja',
-    labelHi: 'मांगल दोष पूजा',
-    href: '/mangal-dosh-puja-ujjain',
+    label: 'Puja Services',
+    labelHi: 'पूजा सेवाएँ',
+    href: '#',
+    children: [
+      { label: 'Mangal Dosh Puja', labelHi: 'मंगल दोष पूजा', href: '/mangal-dosh-puja-ujjain' },
+      { label: 'Mangal Bhat Puja', labelHi: 'मंगल भात पूजा', href: '/mangal-bhat-puja-ujjain' },
+      { label: 'Mangal Shanti Puja', labelHi: 'मंगल शांति पूजा', href: '/mangal-shanti-puja' },
+      { label: 'Mahakaleshwar Puja', labelHi: 'महाकालेश्वर पूजा', href: '/mahakaleshwar-puja-ujjain' },
+      { label: 'Mahamrityunjaya Jaap', labelHi: 'महामृत्युंजय जाप', href: '/mahamrityunjaya-jaap-ujjain' },
+      { label: 'Kaal Sarp Dosh Puja', labelHi: 'काल सर्प दोष पूजा', href: '/kaal-sarp-dosh-puja-ujjain' },
+      { label: 'Navgraha Shanti Puja', labelHi: 'नवग्रह शांति पूजा', href: '/navgraha-shanti-puja' },
+      { label: 'Rudrabhishek Puja', labelHi: 'रुद्राभिषेक पूजा', href: '/rudrabhishek' },
+      { label: 'Baglamukhi Havan', labelHi: 'बगलामुखी हवन', href: '/baglamukhi-havan-ujjain' },
+      { label: 'Pitra Dosh Nivaran', labelHi: 'पितृ दोष निवारण', href: '/pitra-dosh-nivaran-puja' },
+    ],
   },
-  {
-    label: 'Puja Packages',
-    labelHi: 'पूजा पैकेज',
-    href: '/puja-packages',
-  },
-  {
-    label: 'Why Ujjain',
-    labelHi: 'उज्जैन क्यों',
-    href: '#why-ujjain',
-    isHash: true,
-  },
-  { label: 'About', labelHi: 'हमारे बारे में', href: '/about' },
+  { label: 'Gallery', labelHi: 'गैलरी', href: '/gallery' },
+  { label: 'Blog', labelHi: 'ब्लॉग', href: '/blog' },
   { label: 'FAQs', labelHi: 'प्रश्नोत्तर', href: '/faq' },
   { label: 'Contact', labelHi: 'संपर्क', href: '/contact' },
 ];
@@ -60,9 +63,50 @@ const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURICompon
 //  Sub-components
 // ─────────────────────────────────────────────
 
-/** Desktop nav link with gold active underline */
+/** Desktop nav link with gold active underline and hover dropdown */
 const DesktopNavLink: React.FC<{ item: NavItem; lang: 'en' | 'hi' }> = ({ item, lang }) => {
   const label = lang === 'hi' ? item.labelHi : item.label;
+  const [isOpen, setIsOpen] = useState(false);
+
+  if (item.children) {
+    return (
+      <div
+        className="relative group py-4"
+        onMouseEnter={() => setIsOpen(true)}
+        onMouseLeave={() => setIsOpen(false)}
+      >
+        <button
+          className="flex items-center gap-1 text-sm font-medium text-text-dark hover:text-primary transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold rounded-sm cursor-pointer"
+          aria-expanded={isOpen}
+          aria-haspopup="true"
+        >
+          {label}
+          <svg className={`w-3 h-3 fill-none stroke-current transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} viewBox="0 0 24 24" strokeWidth="2.5"><path d="m19.5 8.25-7.5 7.5-7.5-7.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+
+        {/* Dropdown Menu */}
+        <div
+          className={`absolute top-full left-1/2 -translate-x-1/2 mt-1 w-64 bg-white border border-gold/15 rounded-xl shadow-lg py-2 z-50 transition-all duration-200 ${
+            isOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2 pointer-events-none'
+          }`}
+        >
+          <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-white border-t border-l border-gold/15 rotate-45" />
+          <ul className="relative z-10">
+            {item.children.map((child) => (
+              <li key={child.href}>
+                <Link
+                  to={child.href}
+                  className="block px-4 py-2.5 text-xs font-semibold text-text-dark hover:text-primary hover:bg-gold/5 transition-all duration-150 border-l-2 border-transparent hover:border-gold"
+                >
+                  {lang === 'hi' ? child.labelHi : child.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    );
+  }
 
   if (item.isHash) {
     return (
@@ -106,16 +150,56 @@ const DesktopNavLink: React.FC<{ item: NavItem; lang: 'en' | 'hi' }> = ({ item, 
   );
 };
 
-/** Mobile drawer nav link */
+/** Mobile drawer nav link with collapsible accordion for children */
 const MobileNavLink: React.FC<{
   item: NavItem;
-  lang: 'en' | 'hi';
   onClose: () => void;
-}> = ({ item, lang, onClose }) => {
+  lang: 'en' | 'hi';
+}> = ({ item, onClose, lang }) => {
   const label = lang === 'hi' ? item.labelHi : item.label;
+  const [isOpen, setIsOpen] = useState(false);
 
   const baseClasses =
     'flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold';
+
+  if (item.children) {
+    return (
+      <div className="w-full">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className={`${baseClasses} w-full justify-between text-text-dark hover:bg-gold/10`}
+        >
+          <span className="flex items-center gap-3">
+            <span className="text-gold/60 text-xs">॰</span>
+            {label}
+          </span>
+          <svg className={`w-4 h-4 fill-none stroke-current transition-transform duration-200 ${isOpen ? 'rotate-185' : ''}`} viewBox="0 0 24 24" strokeWidth="2.5"><path d="m19.5 8.25-7.5 7.5-7.5-7.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        </button>
+
+        {isOpen && (
+          <ul className="pl-6 border-l border-gold/25 mt-1 space-y-1">
+            {item.children.map((child) => (
+              <li key={child.href}>
+                <NavLink
+                  to={child.href}
+                  onClick={onClose}
+                  className={({ isActive }) =>
+                    `block px-4 py-2.5 text-sm font-medium rounded-xl transition-all duration-200 ${
+                      isActive
+                        ? 'text-primary bg-primary/5 font-semibold'
+                        : 'text-text-muted hover:text-primary hover:bg-gold/10'
+                    }`
+                  }
+                >
+                  {lang === 'hi' ? child.labelHi : child.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    );
+  }
 
   if (item.isHash) {
     return (

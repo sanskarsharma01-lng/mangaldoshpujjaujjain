@@ -6,7 +6,6 @@ import { Layout } from './components/layout/Layout';
 
 // Lazy loading all pages for optimal performance and code splitting
 const HomePage = lazy(() => import('./pages/HomePage'));
-const PackagesPage = lazy(() => import('./pages/PackagesPage'));
 const AboutPage = lazy(() => import('./pages/AboutPage'));
 const FAQPage = lazy(() => import('./pages/FAQPage'));
 const ContactPage = lazy(() => import('./pages/ContactPage'));
@@ -20,6 +19,11 @@ const MangalBhatPujaPage = lazy(() => import('./pages/services/MangalBhatPujaPag
 const MangalShantiPage = lazy(() => import('./pages/services/MangalShantiPage'));
 const NavgrahaShantiPage = lazy(() => import('./pages/services/NavgrahaShantiPage'));
 const RudrabhishekPage = lazy(() => import('./pages/services/RudrabhishekPage'));
+const MahakaleshwarPujaPage = lazy(() => import('./pages/services/MahakaleshwarPujaPage'));
+const MahamrityunjayaJaapPage = lazy(() => import('./pages/services/MahamrityunjayaJaapPage'));
+const KaalSarpDoshPujaPage = lazy(() => import('./pages/services/KaalSarpDoshPujaPage'));
+const BaglamukhiHavanPage = lazy(() => import('./pages/services/BaglamukhiHavanPage'));
+const PitraDoshNivaranPage = lazy(() => import('./pages/services/PitraDoshNivaranPage'));
 
 // Legal & Fallbacks
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
@@ -51,9 +55,13 @@ export const App: React.FC = () => {
               <Route path="/mangal-shanti-puja" element={<MangalShantiPage />} />
               <Route path="/navgraha-shanti-puja" element={<NavgrahaShantiPage />} />
               <Route path="/rudrabhishek" element={<RudrabhishekPage />} />
+              <Route path="/mahakaleshwar-puja-ujjain" element={<MahakaleshwarPujaPage />} />
+              <Route path="/mahamrityunjaya-jaap-ujjain" element={<MahamrityunjayaJaapPage />} />
+              <Route path="/kaal-sarp-dosh-puja-ujjain" element={<KaalSarpDoshPujaPage />} />
+              <Route path="/baglamukhi-havan-ujjain" element={<BaglamukhiHavanPage />} />
+              <Route path="/pitra-dosh-nivaran-puja" element={<PitraDoshNivaranPage />} />
 
               {/* Core Pages */}
-              <Route path="/puja-packages" element={<PackagesPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/contact" element={<ContactPage />} />

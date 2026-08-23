@@ -41,7 +41,7 @@ const strings: Record<Language, Record<string, unknown>> = {
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>(() => {
-    return (localStorage.getItem('lang') as Language) || 'en';
+    return (localStorage.getItem('lang') as Language) || 'hi';
   });
 
   const setLanguage = useCallback((lang: Language) => {

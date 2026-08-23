@@ -5,7 +5,7 @@ import { services } from '../../data/services';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
 export const PujaServices: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   return (
     <section className="section-padding bg-cream/35 relative overflow-hidden" id="puja-services">
@@ -38,11 +38,11 @@ export const PujaServices: React.FC = () => {
                 </div>
 
                 <h3 className="text-xl font-poppins font-bold text-primary mb-3 group-hover:text-primary-light transition-colors duration-200">
-                  {service.name}
+                  {language === 'hi' && service.nameHi ? service.nameHi : service.name}
                 </h3>
 
                 <p className="text-text-muted text-sm leading-relaxed mb-6">
-                  {service.shortDescription}
+                  {language === 'hi' && service.shortDescriptionHi ? service.shortDescriptionHi : service.shortDescription}
                 </p>
               </div>
 

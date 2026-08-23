@@ -5,11 +5,15 @@
 export interface Service {
   id: string;
   name: string;
+  nameHi?: string;
   slug: string;
   shortDescription: string;
+  shortDescriptionHi?: string;
   fullDescription: string;
+  fullDescriptionHi?: string;
   icon: string;
   features: string[];
+  featuresHi?: string[];
   image?: string;
   metaTitle: string;
   metaDescription: string;

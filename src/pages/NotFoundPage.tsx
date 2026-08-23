@@ -32,9 +32,6 @@ export const NotFoundPage: React.FC = () => {
             <Link to="/" className="btn-primary w-full py-3">
               Go to Home Page
             </Link>
-            <Link to="/puja-packages" className="btn-outline-gold w-full py-3">
-              View Puja Packages
-            </Link>
           </div>
         </div>
       </main>

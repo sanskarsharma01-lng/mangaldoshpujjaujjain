@@ -21,6 +21,7 @@ export const MangalDoshChecker: React.FC = () => {
   const { t } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [whatsappUrl, setWhatsappUrl] = useState('');
 
   const {
     register,
@@ -37,22 +38,34 @@ export const MangalDoshChecker: React.FC = () => {
   const onSubmit = (data: CheckerForm) => {
     setLoading(true);
     trackEvent('mangal_checker_submitted', { gender: data.gender });
-    
-    // Simulate API processing delay
-    setTimeout(() => {
-      setLoading(false);
-      setSubmitted(true);
-    }, 1200);
+
+    const message = [
+      'Namaste Pandit Ji, I submitted my birth details for Mangal Dosh analysis.',
+      '',
+      `Full Name: ${data.name}`,
+      `Date of Birth: ${data.dob}`,
+      `Time of Birth: ${data.tob}`,
+      `Place of Birth: ${data.pob}`,
+      `Gender: ${data.gender}`,
+      '',
+      'Please share my Kundli analysis and guidance.',
+    ].join('\n');
+
+    setWhatsappUrl(
+      `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`
+    );
+
+    const whatsappLink = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappLink, '_blank', 'noopener,noreferrer');
+    setLoading(false);
+    setSubmitted(true);
   };
 
   const handleReset = () => {
     reset();
     setSubmitted(false);
+    setWhatsappUrl('');
   };
-
-  const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-    'Namaste Pandit Ji, I just submitted my birth details on your website Mangal Dosh Checker. I would like to receive my Kundli analysis.'
-  )}`;
 
   return (
     <section className="section-padding bg-cream/45 relative overflow-hidden" id="dosh-checker">

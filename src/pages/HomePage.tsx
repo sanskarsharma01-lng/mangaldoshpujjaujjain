@@ -10,7 +10,6 @@ import MangalDoshIntro from '../components/sections/MangalDoshIntro';
 import WhyUjjain from '../components/sections/WhyUjjain';
 import PujaServices from '../components/sections/PujaServices';
 import HowPujaWorks from '../components/sections/HowPujaWorks';
-import PujaPackages from '../components/sections/PujaPackages';
 import PanditSection from '../components/sections/PanditSection';
 import UjjainLocation from '../components/sections/UjjainLocation';
 import MangalDoshChecker from '../components/sections/MangalDoshChecker';
@@ -84,7 +83,6 @@ export const HomePage: React.FC = () => {
         <WhyUjjain />
         <PujaServices />
         <HowPujaWorks />
-        <PujaPackages />
         <PanditSection />
         <UjjainLocation />
         <MangalDoshChecker />

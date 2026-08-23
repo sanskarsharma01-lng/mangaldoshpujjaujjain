@@ -79,11 +79,6 @@ export const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/puja-packages" className="text-ivory/80 hover:text-gold transition-colors duration-200">
-                  {t('nav.pujaPackages')}
-                </Link>
-              </li>
-              <li>
                 <Link to="/about" className="text-ivory/80 hover:text-gold transition-colors duration-200">
                   {t('nav.about')}
                 </Link>

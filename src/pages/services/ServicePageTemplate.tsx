@@ -1,12 +1,12 @@
 import React from 'react';
 import { useBooking } from '../../contexts/BookingContext';
+import { useLanguage } from '../../contexts/LanguageContext';
 import { services } from '../../data/services';
 import { siteConfig } from '../../data/siteConfig';
 import { trackEvent } from '../../lib/analytics';
 import { SEOHead } from '../../components/seo/SEOHead';
 import { Breadcrumb } from '../../components/seo/Breadcrumb';
 import { ScrollReveal } from '../../components/ui/ScrollReveal';
-import PujaPackages from '../../components/sections/PujaPackages';
 import FAQSection from '../../components/sections/FAQSection';
 import FinalCTA from '../../components/sections/FinalCTA';
 
@@ -16,6 +16,7 @@ interface ServicePageTemplateProps {
 
 export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ slug }) => {
   const { openBooking } = useBooking();
+  const { language } = useLanguage();
 
   const service = services.find((s) => s.slug === slug);
 
@@ -26,6 +27,11 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ slug }
       </div>
     );
   }
+
+  const serviceName = language === 'hi' && service.nameHi ? service.nameHi : service.name;
+  const serviceShortDesc = language === 'hi' && service.shortDescriptionHi ? service.shortDescriptionHi : service.shortDescription;
+  const serviceFullDesc = language === 'hi' && service.fullDescriptionHi ? service.fullDescriptionHi : service.fullDescription;
+  const serviceFeatures = language === 'hi' && service.featuresHi ? service.featuresHi : service.features;
 
   const handleBookClick = () => {
     trackEvent('book_puja_clicked', { source: `service_page_${slug}` });
@@ -41,8 +47,8 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ slug }
   return (
     <>
       <SEOHead
-        title={`${service.metaTitle} | ${siteConfig.name}`}
-        description={service.metaDescription}
+        title={`${serviceName} | ${siteConfig.name}`}
+        description={serviceShortDesc}
         canonical={canonical}
       />
 
@@ -52,8 +58,8 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ slug }
           <div className="container-custom">
             <Breadcrumb
               items={[
-                { label: 'Home', href: '/' },
-                { label: service.name },
+                { label: language === 'hi' ? 'होम' : 'Home', href: '/' },
+                { label: serviceName },
               ]}
             />
           </div>
@@ -67,10 +73,10 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ slug }
               {service.icon}
             </span>
             <h1 className="text-3xl md:text-5xl font-poppins font-bold text-primary leading-tight">
-              {service.name}
+              {serviceName}
             </h1>
             <p className="text-text-muted text-sm md:text-base max-w-xl mx-auto font-light leading-relaxed">
-              {service.shortDescription}
+              {serviceShortDesc}
             </p>
           </div>
         </div>
@@ -83,15 +89,19 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ slug }
               {/* Left Column: Description & Features */}
               <div className="lg:col-span-8 space-y-6">
                 <ScrollReveal direction="up" delay={0.1} className="prose max-w-none text-text-muted leading-relaxed">
-                  <h2 className="text-2xl font-poppins font-bold text-primary mb-4">Ritual Overview & Scriptural Importance</h2>
-                  <p>{service.fullDescription}</p>
+                  <h2 className="text-2xl font-poppins font-bold text-primary mb-4">
+                    {language === 'hi' ? 'पूजन विवरण और महत्व' : 'Ritual Overview & Scriptural Importance'}
+                  </h2>
+                  <p>{serviceFullDesc}</p>
                 </ScrollReveal>
 
                 {/* Features List */}
                 <ScrollReveal direction="up" delay={0.2} className="space-y-4 pt-4">
-                  <h3 className="text-lg font-poppins font-bold text-primary">Puja Offerings & Arrangements</h3>
+                  <h3 className="text-lg font-poppins font-bold text-primary">
+                    {language === 'hi' ? 'पूजा सामग्री और व्यवस्था' : 'Puja Offerings & Arrangements'}
+                  </h3>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {service.features.map((feat, idx) => (
+                    {serviceFeatures.map((feat, idx) => (
                       <div key={idx} className="flex items-start gap-2.5">
                         <span className="text-gold text-lg mt-0.5" aria-hidden="true">✔</span>
                         <span className="text-text-dark font-medium text-sm leading-normal">{feat}</span>
@@ -131,9 +141,6 @@ export const ServicePageTemplate: React.FC<ServicePageTemplateProps> = ({ slug }
             </div>
           </div>
         </section>
-
-        {/* Pricing & Packages */}
-        <PujaPackages />
 
         <FAQSection />
 
