@@ -6,7 +6,8 @@ import { trackEvent } from '../../lib/analytics';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
 export const PanditSection: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isHindi = language === 'hi';
 
   const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
     'Namaste Pandit Ji, I would like to consult you regarding Mangal Dosh Puja in Ujjain.'
@@ -34,7 +35,7 @@ export const PanditSection: React.FC = () => {
                     <span className="text-gold text-7xl block select-none" aria-hidden="true">👨‍🦳</span>
                     <div>
                       <p className="text-primary font-poppins font-bold text-2xl tracking-wide">{pandit.name}</p>
-                      <p className="text-primary/80 text-sm tracking-wider uppercase mt-1">{pandit.experience} Experience</p>
+                      <p className="text-primary/80 text-sm tracking-wider uppercase mt-1">{pandit.experience} {isHindi ? 'वर्षों का अनुभव' : 'Experience'}</p>
                     </div>
                   </div>
 
@@ -58,29 +59,29 @@ export const PanditSection: React.FC = () => {
                 </h2>
                 <div className="gold-divider-left" />
                 <p className="text-warm-brown font-serif text-lg font-medium leading-relaxed italic">
-                  {pandit.title}
+                  {isHindi ? 'वैदिक पंडित और अनुष्ठान विशेषज्ञ, उज्जैन' : pandit.title}
                 </p>
               </ScrollReveal>
 
               <ScrollReveal direction="up" delay={0.2} className="text-text-muted text-sm leading-relaxed space-y-4">
-                <p>{pandit.bio}</p>
+                <p>{isHindi ? 'हमारे पंडित जी उज्जैन में स्थित अनुभवी वैदिक अनुष्ठान विशेषज्ञ हैं और पारंपरिक वैदिक विधियों में प्रशिक्षित हैं। वे मंगल दोष पूजा, मंगल भात पूजा और अन्य वैदिक अनुष्ठानों को उज्जैन के पवित्र मंदिरों में संपन्न कराते हैं। पंडित जी भक्तों का स्पष्टता, करुणा और परंपरा के सम्मान के साथ मार्गदर्शन करते हैं।' : pandit.bio}</p>
                 
                 {/* Credentials Row */}
                 <div className="grid grid-cols-2 gap-y-3 gap-x-4 pt-2">
                   <div className="flex items-center gap-2">
-                    <span className="text-gold font-bold text-sm">📍 Location:</span>
-                    <span className="text-text-dark font-medium">{pandit.location}</span>
+                    <span className="text-gold font-bold text-sm">📍 {isHindi ? 'स्थान:' : 'Location:'}</span>
+                    <span className="text-text-dark font-medium">{isHindi ? 'उज्जैन, मध्य प्रदेश' : pandit.location}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-gold font-bold text-sm">🗣 Languages:</span>
-                    <span className="text-text-dark font-medium">{pandit.languages.join(', ')}</span>
+                    <span className="text-gold font-bold text-sm">🗣 {isHindi ? 'भाषाएं:' : 'Languages:'}</span>
+                    <span className="text-text-dark font-medium">{isHindi ? 'हिंदी, संस्कृत, अंग्रेजी' : pandit.languages.join(', ')}</span>
                   </div>
                 </div>
               </ScrollReveal>
 
               {/* Specializations Badges */}
               <ScrollReveal direction="up" delay={0.3} className="space-y-3">
-                <p className="text-warm-brown font-bold text-sm uppercase tracking-wide">Specializations:</p>
+                <p className="text-warm-brown font-bold text-sm uppercase tracking-wide">{isHindi ? 'विशेषज्ञता:' : 'Specializations:'}</p>
                 <div className="flex flex-wrap gap-2.5">
                   {pandit.badges.map((badge, idx) => (
                     <span key={idx} className="badge-gold">

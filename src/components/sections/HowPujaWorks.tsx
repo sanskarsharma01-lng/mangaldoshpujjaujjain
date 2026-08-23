@@ -11,10 +11,17 @@ interface Step {
 }
 
 export const HowPujaWorks: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const { openBooking } = useBooking();
 
-  const steps: Step[] = [
+  const steps: Step[] = language === 'hi' ? [
+    { num: '01', title: 'परामर्श', desc: 'अपने जन्म विवरण, प्रश्न और पूजा की आवश्यकता पर चर्चा करने के लिए फोन या व्हाट्सएप से हमारी टीम से जुड़ें।' },
+    { num: '02', title: 'जन्म विवरण', desc: 'अपना नाम, जन्म तिथि, समय और स्थान दें। इससे पंडित जी पूजा की सही दिशा तय कर सकेंगे।' },
+    { num: '03', title: 'पूजा चुनें', desc: 'अपनी आवश्यकता और ज्योतिषीय सलाह के अनुसार उपयुक्त पूजा और अनुष्ठान चुनें।' },
+    { num: '04', title: 'तिथि चुनें', desc: 'ग्रहों की स्थिति या पारंपरिक शुभ दिनों, जैसे मंगलवार, के आधार पर शुभ मुहूर्त चुनें।' },
+    { num: '05', title: 'पूजा समारोह', desc: 'पंडित जी उज्जैन में पारंपरिक पूजा संपन्न करते हैं। आप व्यक्तिगत रूप से या दूर से शामिल हो सकते हैं।' },
+    { num: '06', title: 'पुष्टि और प्रसाद', desc: 'बुकिंग अपडेट, पूजा की तस्वीरें और पवित्र प्रसाद सीधे अपने घर पर प्राप्त करें।' },
+  ] : [
     {
       num: '01',
       title: 'Consultation',
@@ -61,7 +68,7 @@ export const HowPujaWorks: React.FC = () => {
             </h2>
             <div className="gold-divider" />
             <p className="section-subtitle mx-auto">
-              We guide you transparently through every stage, from your initial enquiry to the completion of sacred offerings.
+              {language === 'hi' ? 'हम आपकी प्रारंभिक पूछताछ से लेकर पूजा और प्रसाद की व्यवस्था तक हर चरण में पारदर्शी मार्गदर्शन देते हैं।' : 'We guide you transparently through every stage, from your initial enquiry to the completion of sacred offerings.'}
             </p>
           </ScrollReveal>
         </div>
@@ -129,7 +136,7 @@ export const HowPujaWorks: React.FC = () => {
             }}
             className="btn-primary"
           >
-            Book Your Puja Now
+            {language === 'hi' ? 'अभी अपनी पूजा बुक करें' : 'Book Your Puja Now'}
           </button>
         </ScrollReveal>
 

@@ -5,7 +5,7 @@ import { testimonials } from '../../data/testimonials';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
 export const Testimonials: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSlide = useCallback(() => {
@@ -23,6 +23,15 @@ export const Testimonials: React.FC = () => {
   }, [nextSlide]);
 
   const activeTestimonial = testimonials[currentIndex];
+  const hindiTestimonials = [
+    { text: 'पूजा पूरी श्रद्धा और पारंपरिक विधि से संपन्न हुई। पंडित जी ने पूरी प्रक्रिया में हमारा बहुत अच्छा मार्गदर्शन किया। उज्जैन में पूजा के बाद हमें सचमुच आशीर्वाद का अनुभव हुआ।', service: 'मंगल दोष पूजा' },
+    { text: 'टीम ने हर बात सरलता से समझाई और मंगल भात पूजा बिल्कुल बताए गए तरीके से संपन्न हुई। उज्जैन का आध्यात्मिक अनुभव बहुत विशेष रहा।', service: 'मंगल भात पूजा' },
+    { text: 'बुकिंग प्रक्रिया सरल थी और पूजा पूरी पारंपरिक विधि से संपन्न हुई। उज्जैन में मंगल दोष पूजा कराने वालों के लिए मैं इसकी सिफारिश करता हूं।', service: 'मंगल शांति पूजा' },
+    { text: 'नवग्रह शांति पूजा बहुत व्यवस्थित तरीके से हुई। पंडित जी ने हर चरण का महत्व समझाया और उज्जैन का वातावरण अनुभव को और सुंदर बनाता है।', service: 'नवग्रह शांति' },
+    { text: 'टीम ने सभी व्यवस्थाओं में सहायता की और रुद्राभिषेक पारंपरिक तरीके से संपन्न हुआ। सेवा बहुत अच्छी रही।', service: 'रुद्राभिषेक' },
+    { text: 'बुकिंग आसान रही, संवाद तेज था और पूजा सुंदर तरीके से संपन्न हुई। पंडित जी ने हमारे परिवार का पूरे सम्मान से स्वागत किया।', service: 'मंगल दोष पूजा' },
+  ];
+  const currentHindiTestimonial = hindiTestimonials[currentIndex];
 
   return (
     <section className="section-padding bg-white relative overflow-hidden" id="devotee-experiences">
@@ -40,7 +49,7 @@ export const Testimonials: React.FC = () => {
             </h2>
             <div className="gold-divider" />
             <p className="text-text-muted text-sm italic">
-              (Demo review indicators - genuine verified experiences will be added upon launch)
+              {language === 'hi' ? '(डेमो समीक्षा संकेतक - वास्तविक सत्यापित अनुभव लॉन्च के बाद जोड़े जाएंगे)' : '(Demo review indicators - genuine verified experiences will be added upon launch)'}
             </p>
           </ScrollReveal>
         </div>
@@ -57,8 +66,8 @@ export const Testimonials: React.FC = () => {
                 transition={{ duration: 0.35 }}
                 className="text-center space-y-5"
                 role="group"
-                aria-roledescription="slide"
-                aria-label={`Testimonial ${currentIndex + 1} of ${testimonials.length}`}
+                aria-roledescription={language === 'hi' ? 'स्लाइड' : 'slide'}
+                aria-label={`${language === 'hi' ? 'अनुभव' : 'Testimonial'} ${currentIndex + 1} ${language === 'hi' ? 'में से' : 'of'} ${testimonials.length}`}
               >
                 {/* Stars */}
                 <div className="flex justify-center gap-1 text-gold" aria-label="Rating: 5 out of 5 stars">
@@ -69,14 +78,14 @@ export const Testimonials: React.FC = () => {
 
                 {/* Quote */}
                 <blockquote className="text-lg sm:text-xl font-serif italic text-[#2A1515] leading-relaxed max-w-2xl mx-auto relative">
-                  "{activeTestimonial.text}"
+                  "{language === 'hi' ? currentHindiTestimonial.text : activeTestimonial.text}"
                 </blockquote>
 
                 {/* Author Info */}
                 <div className="space-y-1">
                   <p className="font-poppins font-bold text-gold tracking-wide">{activeTestimonial.name}</p>
                   <p className="text-text-muted text-xs tracking-wider uppercase">
-                    {activeTestimonial.city} • <span className="text-gold/80">{activeTestimonial.service}</span>
+                    {activeTestimonial.city} • <span className="text-gold/80">{language === 'hi' ? currentHindiTestimonial.service : activeTestimonial.service}</span>
                   </p>
                 </div>
               </motion.div>
@@ -86,7 +95,7 @@ export const Testimonials: React.FC = () => {
           {/* Left Arrow */}
           <button
             onClick={prevSlide}
-            aria-label="Previous testimonial"
+            aria-label={language === 'hi' ? 'पिछला अनुभव' : 'Previous testimonial'}
             className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-gold/20 flex items-center justify-center text-primary bg-primary/8 hover:bg-primary/15 transition-all duration-300 focus-visible:outline-none"
           >
             ‹
@@ -95,7 +104,7 @@ export const Testimonials: React.FC = () => {
           {/* Right Arrow */}
           <button
             onClick={nextSlide}
-            aria-label="Next testimonial"
+            aria-label={language === 'hi' ? 'अगला अनुभव' : 'Next testimonial'}
             className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full border border-gold/20 flex items-center justify-center text-primary bg-primary/8 hover:bg-primary/15 transition-all duration-300 focus-visible:outline-none"
           >
             ›
@@ -107,7 +116,7 @@ export const Testimonials: React.FC = () => {
               <button
                 key={idx}
                 onClick={() => setCurrentIndex(idx)}
-                aria-label={`Go to testimonial ${idx + 1}`}
+                aria-label={`${language === 'hi' ? 'अनुभव देखें' : 'Go to testimonial'} ${idx + 1}`}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 focus-visible:outline-none ${
                   currentIndex === idx ? 'bg-gold w-6' : 'bg-primary/20 hover:bg-primary/40'
                 }`}

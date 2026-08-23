@@ -9,9 +9,16 @@ interface WhyCard {
 }
 
 export const WhyUjjain: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
-  const cards: WhyCard[] = [
+  const cards: WhyCard[] = language === 'hi' ? [
+    { icon: '🔱', title: 'पवित्र मंगलनाथ मंदिर', desc: 'पारंपरिक मान्यताओं में इसे भगवान मंगल का जन्मस्थान माना जाता है, इसलिए मंगल पूजा के लिए यह सबसे शुभ स्थान है।' },
+    { icon: '🕉', title: 'वैदिक अनुष्ठान', desc: 'सभी समारोह शास्त्रीय वैदिक ग्रंथों, परंपराओं और मंत्र विधि के अनुसार संपन्न किए जाते हैं।' },
+    { icon: '👨‍🦳', title: 'अनुभवी पंडित', desc: 'हमारे स्थानीय पंडितों को पीढ़ियों से वैदिक प्रशिक्षण प्राप्त है और वे मंगल दोष व मंगल भात पूजा में विशेषज्ञ हैं।' },
+    { icon: '🌺', title: 'पूजा में पूरी सहायता', desc: 'हम आवश्यक पूजा सामग्री, मंदिर समन्वय और सभी अनुष्ठानिक व्यवस्थाएं करते हैं, जिससे आपका अनुभव सहज रहता है।' },
+    { icon: '📿', title: 'व्यक्तिगत मार्गदर्शन', desc: 'हर अनुष्ठान आपकी जन्म-कुंडली और पारंपरिक पारिवारिक गोत्र के अनुसार व्यवस्थित किया जाता है।' },
+    { icon: '🙏', title: 'पवित्र वातावरण', desc: 'आध्यात्मिक ऊर्जा और भक्ति से भरे प्राचीन शहर उज्जैन में पवित्र शिप्रा नदी के तट पर पूजा करें।' },
+  ] : [
     {
       icon: '🔱',
       title: 'Sacred Mangalnath Temple',
@@ -60,7 +67,7 @@ export const WhyUjjain: React.FC = () => {
             </h2>
             <div className="gold-divider" />
             <p className="text-text-muted text-lg mt-4">
-              Ujjain holds a unique position in Vedic cosmology and astrology. Perform your rituals in the ultimate city of Lord Shiva and Mangal Dev.
+              {language === 'hi' ? 'उज्जैन का वैदिक ब्रह्मांड विज्ञान और ज्योतिष में विशेष स्थान है। भगवान शिव और मंगल देव की इस पवित्र नगरी में अपना अनुष्ठान संपन्न करें।' : 'Ujjain holds a unique position in Vedic cosmology and astrology. Perform your rituals in the ultimate city of Lord Shiva and Mangal Dev.'}
             </p>
           </ScrollReveal>
         </div>

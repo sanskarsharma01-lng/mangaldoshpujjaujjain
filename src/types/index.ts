@@ -78,6 +78,7 @@ export interface GalleryItem {
   id: string;
   src: string;
   alt: string;
+  altHi?: string;
   category: 'Temple' | 'Puja' | 'Havan' | 'Pandit Ji' | 'Ujjain' | 'Devotees' | 'Prasad';
   width: number;
   height: number;

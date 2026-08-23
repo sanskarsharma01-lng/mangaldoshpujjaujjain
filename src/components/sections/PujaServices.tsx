@@ -21,7 +21,7 @@ export const PujaServices: React.FC = () => {
             </h2>
             <div className="gold-divider" />
             <p className="section-subtitle mx-auto">
-              Choose from our range of traditional Vedic puja and shanti rituals, conducted under the guidance of experienced Pandits in Ujjain.
+              {language === 'hi' ? 'उज्जैन में अनुभवी पंडितों के मार्गदर्शन में संपन्न होने वाली पारंपरिक वैदिक पूजा और शांति अनुष्ठानों में से चुनें।' : 'Choose from our range of traditional Vedic puja and shanti rituals, conducted under the guidance of experienced Pandits in Ujjain.'}
             </p>
           </ScrollReveal>
         </div>

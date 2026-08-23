@@ -22,7 +22,8 @@ const cardVariants: Variants = {
 };
 
 export const TrustStats: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const labelsHi = ['वर्षों का अनुभव', 'मार्गदर्शन प्राप्त भक्त', 'पूजा समारोह', 'बुकिंग सहायता'];
 
   return (
     <section className="bg-cream/40 border-t border-b border-gold/15 py-12 md:py-16 relative overflow-hidden">
@@ -47,7 +48,7 @@ export const TrustStats: React.FC = () => {
                 <span>{stat.suffix}</span>
               </div>
               <p className="text-warm-brown font-medium text-sm md:text-base uppercase tracking-wider">
-                {stat.label}
+                {language === 'hi' ? labelsHi[index] : stat.label}
               </p>
             </motion.div>
           ))}

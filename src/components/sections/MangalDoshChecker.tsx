@@ -18,7 +18,7 @@ const checkerSchema = zod.object({
 type CheckerForm = zod.infer<typeof checkerSchema>;
 
 export const MangalDoshChecker: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [whatsappUrl, setWhatsappUrl] = useState('');
@@ -81,7 +81,7 @@ export const MangalDoshChecker: React.FC = () => {
             </h2>
             <div className="gold-divider" />
             <p className="section-subtitle mx-auto">
-              Submit your birth details to consult our Pandit Ji for an accurate, scriptural interpretation of your birth chart (Kundli).
+              {language === 'hi' ? 'अपनी जन्म-कुंडली की सटीक शास्त्रीय व्याख्या के लिए हमारे पंडित जी से परामर्श करने हेतु अपना जन्म विवरण भेजें।' : 'Submit your birth details to consult our Pandit Ji for an accurate, scriptural interpretation of your birth chart (Kundli).'}
             </p>
           </ScrollReveal>
         </div>
@@ -94,13 +94,13 @@ export const MangalDoshChecker: React.FC = () => {
                 {/* Name */}
                 <div>
                   <label htmlFor="chk-name" className="input-label">
-                    Full Name <span className="text-red-500">*</span>
+                    {language === 'hi' ? 'पूरा नाम' : 'Full Name'} <span className="text-red-500">*</span>
                   </label>
                   <input
                     id="chk-name"
                     type="text"
                     {...register('name')}
-                    placeholder="Enter your full name"
+                    placeholder={language === 'hi' ? 'अपना पूरा नाम दर्ज करें' : 'Enter your full name'}
                     className="input-field"
                     disabled={loading}
                     aria-invalid={errors.name ? 'true' : 'false'}
@@ -114,7 +114,7 @@ export const MangalDoshChecker: React.FC = () => {
                   {/* Date of Birth */}
                   <div>
                     <label htmlFor="chk-dob" className="input-label">
-                      Date of Birth <span className="text-red-500">*</span>
+                      {language === 'hi' ? 'जन्म तिथि' : 'Date of Birth'} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="chk-dob"
@@ -132,7 +132,7 @@ export const MangalDoshChecker: React.FC = () => {
                   {/* Time of Birth */}
                   <div>
                     <label htmlFor="chk-tob" className="input-label">
-                      Time of Birth <span className="text-red-500">*</span>
+                      {language === 'hi' ? 'जन्म समय' : 'Time of Birth'} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="chk-tob"
@@ -152,13 +152,13 @@ export const MangalDoshChecker: React.FC = () => {
                   {/* Place of Birth */}
                   <div>
                     <label htmlFor="chk-pob" className="input-label">
-                      Place of Birth <span className="text-red-500">*</span>
+                      {language === 'hi' ? 'जन्म स्थान' : 'Place of Birth'} <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="chk-pob"
                       type="text"
                       {...register('pob')}
-                      placeholder="e.g. Ujjain, MP"
+                      placeholder={language === 'hi' ? 'जैसे उज्जैन, म.प्र.' : 'e.g. Ujjain, MP'}
                       className="input-field"
                       disabled={loading}
                       aria-invalid={errors.pob ? 'true' : 'false'}
@@ -170,7 +170,7 @@ export const MangalDoshChecker: React.FC = () => {
 
                   {/* Gender */}
                   <div>
-                    <label className="input-label block mb-2">Gender</label>
+                    <label className="input-label block mb-2">{language === 'hi' ? 'लिंग' : 'Gender'}</label>
                     <div className="flex gap-4 pt-1.5">
                       {['Male', 'Female', 'Other'].map((g) => (
                         <label key={g} className="flex items-center gap-2 text-sm text-text-dark cursor-pointer">
@@ -181,7 +181,7 @@ export const MangalDoshChecker: React.FC = () => {
                             disabled={loading}
                             className="w-4 h-4 text-primary border-gold/30 focus:ring-gold"
                           />
-                          <span>{g}</span>
+                          <span>{language === 'hi' ? ({ Male: 'पुरुष', Female: 'महिला', Other: 'अन्य' }[g]) : g}</span>
                         </label>
                       ))}
                     </div>
@@ -201,7 +201,7 @@ export const MangalDoshChecker: React.FC = () => {
                           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                         </svg>
-                        Analyzing charts...
+                        {language === 'hi' ? 'कुंडली का विश्लेषण हो रहा है...' : 'Analyzing charts...'}
                       </>
                     ) : (
                       t('checker.checkButton')
@@ -213,7 +213,7 @@ export const MangalDoshChecker: React.FC = () => {
               /* Success Panel */
               <div className="text-center space-y-6 py-6 animate-fade-in">
                 <span className="text-6xl block" aria-hidden="true">📊</span>
-                <h3 className="text-2xl font-poppins font-bold text-primary">Details Received Successfully</h3>
+                <h3 className="text-2xl font-poppins font-bold text-primary">{language === 'hi' ? 'विवरण सफलतापूर्वक प्राप्त हुआ' : 'Details Received Successfully'}</h3>
                 
                 <div className="p-4 rounded-xl bg-gold/10 border border-gold/20 text-warm-brown text-sm leading-relaxed max-w-md mx-auto">
                   {t('checker.resultMessage')}
@@ -230,7 +230,7 @@ export const MangalDoshChecker: React.FC = () => {
                     {t('checker.consultCta')}
                   </a>
                   <button onClick={handleReset} className="btn-outline-gold px-6">
-                    Check Another Chart
+                    {language === 'hi' ? 'दूसरी कुंडली जांचें' : 'Check Another Chart'}
                   </button>
                 </div>
               </div>
@@ -238,7 +238,7 @@ export const MangalDoshChecker: React.FC = () => {
 
             {/* Form Disclaimer */}
             <p className="text-center text-[11px] text-text-muted mt-5 leading-normal">
-              ⚠️ <strong>Astrological Note:</strong> Accurate birth-chart (Kundli) calculations require complex astronomical formulas and mathematical engines. This tool does not perform automatic calculation algorithms. Your coordinates are secure and will be hand-evaluated by Pandit Ji.
+              ⚠️ <strong>{language === 'hi' ? 'ज्योतिषीय सूचना:' : 'Astrological Note:'}</strong> {language === 'hi' ? 'सटीक जन्म-कुंडली गणना के लिए जटिल खगोलीय सूत्रों और गणितीय प्रणालियों की आवश्यकता होती है। यह उपकरण स्वचालित गणना नहीं करता। आपका विवरण सुरक्षित है और पंडित जी इसका व्यक्तिगत मूल्यांकन करेंगे।' : 'Accurate birth-chart (Kundli) calculations require complex astronomical formulas and mathematical engines. This tool does not perform automatic calculation algorithms. Your coordinates are secure and will be hand-evaluated by Pandit Ji.'}
             </p>
           </ScrollReveal>
         </div>
