@@ -4,6 +4,21 @@ import { useLanguage } from '../../contexts/LanguageContext';
 import { services } from '../../data/services';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
+// Fallback images for puja services when local image files are not available
+const pujaImageFallback: Record<string, string> = {
+  'mangal-dosh-puja': 'https://images.unsplash.com/photo-1545128485-c400e7702796?auto=format&fit=crop&w=600&q=80', // Diyas and flowers
+  'mangal-bhat-puja': 'https://images.unsplash.com/photo-1616038242814-a6eac7845d88?auto=format&fit=crop&w=600&q=80', // Worship offerings
+  'mangal-shanti-puja': 'https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=600&q=80', // Temple architecture
+  'navgraha-shanti': 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=600&q=80', // Brass lamps
+  'rudrabhishek': 'https://images.unsplash.com/photo-1630018868662-e3d82a7f516a?auto=format&fit=crop&w=600&q=80', // Shivling
+  'special-havan': 'https://images.unsplash.com/photo-1620121692029-d088224ddc74?auto=format&fit=crop&w=600&q=80', // Havan fire
+  'mahakaleshwar-puja': 'https://images.unsplash.com/photo-1608958416710-e71de58988a2?auto=format&fit=crop&w=600&q=80', // Temple bells/decor
+  'mahamrityunjaya-jaap': 'https://images.unsplash.com/photo-1609137144813-7d788165b44d?auto=format&fit=crop&w=600&q=80', // Meditative Shivling
+  'kaal-sarp-dosh-puja': 'https://images.unsplash.com/photo-1590076212952-b13134608c02?auto=format&fit=crop&w=600&q=80', // River banks
+  'baglamukhi-havan': 'https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=600&q=80', // Havan fire ritual
+  'pitra-dosh-nivaran': 'https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&w=600&q=80', // Shipra river / prayer
+};
+
 export const PujaServices: React.FC = () => {
   const { t, language } = useLanguage();
 
@@ -30,23 +45,41 @@ export const PujaServices: React.FC = () => {
           {services.map((service) => (
             <article
               key={service.id}
-              className="card-base flex flex-col justify-between group h-full"
+              className="card-base flex flex-col justify-between group h-full overflow-hidden p-0 bg-white"
             >
               <div>
-                <div className="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center text-gold text-2xl font-semibold mb-5 group-hover:bg-gold group-hover:text-primary transition-all duration-300">
-                  <span aria-hidden="true">{service.icon}</span>
+                {/* Puja Image Header */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-cream border-b border-gold/15">
+                  <img
+                    src={service.image}
+                    alt={language === 'hi' && service.nameHi ? service.nameHi : service.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      const fallback = pujaImageFallback[service.id] || '/mangalnath-temple.jpg';
+                      if (target.src !== fallback) {
+                        target.src = fallback;
+                      }
+                    }}
+                  />
+                  {/* Subtle float overlay badge to indicate spiritual category */}
+                  <div className="absolute top-3 right-3 bg-primary-dark/85 backdrop-blur-xs text-gold border border-gold/30 rounded-full w-8 h-8 flex items-center justify-center text-sm shadow-md select-none pointer-events-none">
+                    🕉
+                  </div>
                 </div>
 
-                <h3 className="text-xl font-poppins font-bold text-primary mb-3 group-hover:text-primary-light transition-colors duration-200">
-                  {language === 'hi' && service.nameHi ? service.nameHi : service.name}
-                </h3>
+                <div className="p-6">
+                  <h3 className="text-xl font-poppins font-bold text-primary mb-3 group-hover:text-primary-light transition-colors duration-200">
+                    {language === 'hi' && service.nameHi ? service.nameHi : service.name}
+                  </h3>
 
-                <p className="text-text-muted text-sm leading-relaxed mb-6">
-                  {language === 'hi' && service.shortDescriptionHi ? service.shortDescriptionHi : service.shortDescription}
-                </p>
+                  <p className="text-text-muted text-sm leading-relaxed mb-1">
+                    {language === 'hi' && service.shortDescriptionHi ? service.shortDescriptionHi : service.shortDescription}
+                  </p>
+                </div>
               </div>
 
-              <div className="pt-2 flex flex-wrap items-center gap-3">
+              <div className="px-6 pb-6 pt-2 flex flex-wrap items-center gap-3">
                 <Link
                   to={`/${service.slug}`}
                   className="inline-flex items-center text-gold hover:text-gold-dark text-sm font-semibold tracking-wide transition-colors duration-200"
