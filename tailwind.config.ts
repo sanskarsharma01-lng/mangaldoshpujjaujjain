@@ -18,8 +18,8 @@ const config: Config = {
           pale: '#F5E9C0',
         },
         saffron: {
-          DEFAULT: '#E65100',
-          light: '#FF6D00',
+          DEFAULT: '#E07818',
+          light: '#F29A3F',
           pale: '#FFF3E0',
         },
         ivory: {
@@ -54,6 +54,7 @@ const config: Config = {
       },
       backgroundImage: {
         'gold-gradient': 'linear-gradient(135deg, #C9A227 0%, #E5C35A 50%, #A88215 100%)',
+        'saffron-gradient': 'linear-gradient(135deg, #B9570F 0%, #E07818 48%, #F2B14A 100%)',
         'burgundy-gradient': 'linear-gradient(135deg, #4A0E0E 0%, #6B1C1C 50%, #8B2E2E 100%)',
         'ivory-gradient': 'linear-gradient(180deg, #FFF9F0 0%, #F5EDD8 100%)',
         'hero-overlay':

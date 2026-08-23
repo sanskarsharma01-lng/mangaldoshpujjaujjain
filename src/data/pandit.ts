@@ -3,7 +3,7 @@ import type { Pandit } from '../types';
 // NOTE: All pandit details are configurable placeholders.
 // Replace with actual details before going live.
 export const pandit: Pandit = {
-  name: 'Pandit Ji',
+  name: 'Govind Ji Sharma',
   title: 'Vedic Pandit & Ritual Specialist, Ujjain',
   experience: '15+ Years',
   specializations: [
@@ -25,5 +25,5 @@ export const pandit: Pandit = {
     'Rudrabhishek',
     'Traditional Procedure',
   ],
-  image: undefined, // Add image path when available
+  image: '/pandit-ji.jpg', // Add image path when available
 };

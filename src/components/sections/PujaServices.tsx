@@ -21,7 +21,7 @@ export const PujaServices: React.FC = () => {
             </h2>
             <div className="gold-divider" />
             <p className="section-subtitle mx-auto">
-              Choose from our range of traditional Vedic puja and shanti rituals, conducted under the guidance of experienced Pandits in Ujjain.
+              {language === 'hi' ? 'उज्जैन में अनुभवी पंडितों के मार्गदर्शन में संपन्न होने वाली पारंपरिक वैदिक पूजा और शांति अनुष्ठानों में से चुनें।' : 'Choose from our range of traditional Vedic puja and shanti rituals, conducted under the guidance of experienced Pandits in Ujjain.'}
             </p>
           </ScrollReveal>
         </div>
@@ -46,12 +46,18 @@ export const PujaServices: React.FC = () => {
                 </p>
               </div>
 
-              <div className="pt-2">
+              <div className="pt-2 flex flex-wrap items-center gap-3">
                 <Link
                   to={`/${service.slug}`}
                   className="inline-flex items-center text-gold hover:text-gold-dark text-sm font-semibold tracking-wide transition-colors duration-200"
                 >
                   {t('services.viewDetails')}
+                </Link>
+                <Link
+                  to={`/${service.slug}`}
+                  className="btn-primary inline-flex items-center justify-center px-4 py-2 text-sm"
+                >
+                  {t('services.bookNow')}
                 </Link>
               </div>
             </article>

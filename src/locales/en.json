@@ -35,10 +35,34 @@
   },
   "services": {
     "sectionTitle": "Our Puja Services",
+    "bookNow": "Book Now",
     "viewDetails": "View Details →"
   },
   "howItWorks": {
     "sectionTitle": "How Mangal Dosh Puja Works"
+  },
+  "homeGallery": {
+    "label": "Sacred glimpses",
+    "title": "From Ujjain, with devotion",
+    "viewGallery": "View full gallery",
+    "viewCategory": "View",
+    "items": {
+      "g1": "Mangalnath Temple in Ujjain decorated with flowers and lamps",
+      "g2": "Vedic Mangal Dosh Puja ritual being performed by Pandit Ji",
+      "g3": "Sacred havan fire ceremony with offerings",
+      "g4": "Pandit Ji conducting traditional puja ceremony",
+      "g5": "Sacred ghats of Ujjain on River Shipra at dawn",
+      "g6": "Mangal Bhat Puja ceremony being performed with traditional procedure"
+    }
+  },
+  "reelVideo": {
+    "label": "Puja reels",
+    "title": "See the sacred moments unfold",
+    "description": "A glimpse into the mantras, havan, and traditional rituals performed at the temples of Ujjain.",
+    "ariaLabel": "Mangal Dosh Puja reel",
+    "comingSoon": "Puja reel coming soon",
+    "addVideo": "Add the reel at",
+    "browserUnsupported": "Your browser does not support video playback."
   },
   "packages": {
     "sectionTitle": "Mangal Dosh Puja Packages"

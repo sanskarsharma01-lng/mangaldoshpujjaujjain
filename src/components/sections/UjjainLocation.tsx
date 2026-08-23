@@ -5,7 +5,7 @@ import { trackEvent } from '../../lib/analytics';
 import { ScrollReveal } from '../ui/ScrollReveal';
 
 export const UjjainLocation: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const handleMapClick = () => {
     trackEvent('call_clicked', { source: 'location_map_link' });
@@ -28,16 +28,16 @@ export const UjjainLocation: React.FC = () => {
               </h2>
               <div className="gold-divider-left" />
               <p className="text-warm-brown font-serif text-lg font-medium tracking-wide">
-                📍 Ujjain, Madhya Pradesh, India — The Center of Mars Cosmology
+                {language === 'hi' ? '📍 उज्जैन, मध्य प्रदेश, भारत — मंगल ब्रह्मांड विज्ञान का केंद्र' : '📍 Ujjain, Madhya Pradesh, India — The Center of Mars Cosmology'}
               </p>
             </ScrollReveal>
 
             <ScrollReveal direction="up" delay={0.2} className="text-text-muted text-sm leading-relaxed space-y-4">
               <p>
-                In Hindu cosmography, Ujjain is traditionally regarded as the geographical coordinates representing the origin of Mars (Mangal Dev). The Mangalnath Temple, located on the serene banks of the sacred Shipra River, is considered a primary site dedicated to planetary worship.
+                {language === 'hi' ? 'हिंदू ब्रह्मांड विज्ञान में उज्जैन को मंगल देव की उत्पत्ति के भौगोलिक स्थान के रूप में माना जाता है। पवित्र शिप्रा नदी के शांत तट पर स्थित मंगलनाथ मंदिर ग्रह पूजा का प्रमुख स्थल माना जाता है।' : 'In Hindu cosmography, Ujjain is traditionally regarded as the geographical coordinates representing the origin of Mars (Mangal Dev). The Mangalnath Temple, located on the serene banks of the sacred Shipra River, is considered a primary site dedicated to planetary worship.'}
               </p>
               <p>
-                According to the Matsya Purana, the sacred land of Ujjain was where Lord Mangal was born. Because of this profound historical and scriptural association, performing Mangal Dosh Nivaran and Mangal Bhat puja rituals here is considered highly auspicious by devotees.
+                {language === 'hi' ? 'मत्स्य पुराण के अनुसार, उज्जैन की पवित्र भूमि पर भगवान मंगल का जन्म हुआ था। इस ऐतिहासिक और शास्त्रीय संबंध के कारण यहां मंगल दोष निवारण और मंगल भात पूजा करना भक्तों द्वारा अत्यंत शुभ माना जाता है।' : 'According to the Matsya Purana, the sacred land of Ujjain was where Lord Mangal was born. Because of this profound historical and scriptural association, performing Mangal Dosh Nivaran and Mangal Bhat puja rituals here is considered highly auspicious by devotees.'}
               </p>
             </ScrollReveal>
 
@@ -54,26 +54,24 @@ export const UjjainLocation: React.FC = () => {
             </ScrollReveal>
           </div>
 
-          {/* Right Column: Decorative Sacred representation */}
+          {/* Right Column: Original Mangalnath Temple Image */}
           <div className="lg:col-span-5 flex justify-center">
             <ScrollReveal direction="right" delay={0.2} className="w-full max-w-sm">
-              <div className="relative aspect-video sm:aspect-square rounded-3xl bg-gradient-to-br from-[#FDF0D8] to-[#F5E0B8] shadow-gold overflow-hidden border-2 border-gold/35 flex items-center justify-center p-8">
-                {/* Visual patterns */}
-                <div className="absolute inset-0 pattern-grid opacity-10 pointer-events-none" />
-                <div className="absolute inset-8 border border-gold/20 rounded-full animate-spin-slow opacity-60 pointer-events-none" />
-                
-                {/* Visual center */}
-                <div className="relative z-10 text-center space-y-2">
-                  <span className="text-gold text-6xl block select-none" aria-hidden="true">🔱</span>
-                  <p className="text-primary font-poppins font-bold text-xl uppercase tracking-wider">UJJAIN DHAM</p>
-                  <p className="text-primary/80 text-xs tracking-widest">Shipra River Coast</p>
+              <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border-2 border-gold/35 shadow-gold group">
+                <img
+                  src="/mangalnath-temple.jpg"
+                  alt={language === 'hi' ? 'मंगलनाथ मंदिर उज्जैन' : 'Mangalnath Temple Ujjain'}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Text overlay at the bottom */}
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/45 to-transparent pt-12 pb-6 px-6 text-center">
+                  <p className="text-white font-poppins font-bold text-xl uppercase tracking-wider drop-shadow-md">
+                    {language === 'hi' ? 'मंगलनाथ मंदिर' : 'MANGALNATH TEMPLE'}
+                  </p>
+                  <p className="text-gold text-xs tracking-widest uppercase font-medium mt-1">
+                    {language === 'hi' ? 'उज्जैन, मध्य प्रदेश' : 'Ujjain, Madhya Pradesh'}
+                  </p>
                 </div>
-
-                {/* Corner highlights */}
-                <div className="absolute top-4 left-4 text-gold/60">🕉</div>
-                <div className="absolute top-4 right-4 text-gold/60">🕉</div>
-                <div className="absolute bottom-4 left-4 text-gold/60">🕉</div>
-                <div className="absolute bottom-4 right-4 text-gold/60">🕉</div>
               </div>
             </ScrollReveal>
           </div>
