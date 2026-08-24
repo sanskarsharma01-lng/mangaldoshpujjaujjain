@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
+import { siteConfig } from '../data/siteConfig';
 
 // ─────────────────────────────────────────────
 //  BookingContext — global booking modal state
@@ -31,7 +32,7 @@ export const BookingProvider: React.FC<{ children: React.ReactNode }> = ({ child
         message += ` (Package: ${packageId.charAt(0).toUpperCase() + packageId.slice(1)})`;
       }
     }
-    const url = `https://wa.me/919770581244?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   }, []);
 

@@ -65,7 +65,7 @@ export const ContactPage: React.FC = () => {
 
                   <div className="pt-2">
                     <a
-                      href={`https://wa.me/919770581244?text=${encodeURIComponent('Namaste Pandit Ji, I would like to enquire about Mangal Dosh Puja in Ujjain.')}`}
+                      href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="btn-whatsapp inline-flex items-center justify-center gap-2 px-8 py-4 text-base shadow-md w-full sm:w-auto"
@@ -102,8 +102,8 @@ export const ContactPage: React.FC = () => {
                       </div>
                       <div className="space-y-1">
                         <p className="font-bold text-text-dark">WhatsApp Contact:</p>
-                        <a href={`https://wa.me/919770581244`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
-                          +91 9770581244
+                        <a href={`https://wa.me/${siteConfig.whatsapp}`} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
+                          +{siteConfig.whatsapp.slice(0, 2)} {siteConfig.whatsapp.slice(2)}
                         </a>
                       </div>
                     </li>
