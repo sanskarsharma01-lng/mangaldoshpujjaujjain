@@ -48,49 +48,13 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Main Pages -->
   <url>
-    <loc>https://mangaldoshpujaujjain.com/mahakaleshwar-puja-ujjain</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://mangaldoshpujaujjain.com/mahamrityunjaya-jaap-ujjain</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://mangaldoshpujaujjain.com/kaal-sarp-dosh-puja-ujjain</loc>
+    <loc>https://mangaldoshpujaujjain.com/puja-packages</loc>
     <lastmod>2026-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
-  <url>
-    <loc>https://mangaldoshpujaujjain.com/baglamukhi-havan-ujjain</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://mangaldoshpujaujjain.com/pitra-dosh-nivaran-puja</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://mangaldoshpujaujjain.com/havan-ujjain</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Main Pages -->
 
   <url>
     <loc>https://mangaldoshpujaujjain.com/about</loc>
