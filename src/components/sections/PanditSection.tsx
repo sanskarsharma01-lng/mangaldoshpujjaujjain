@@ -80,7 +80,7 @@ export const PanditSection: React.FC = () => {
                 </h2>
                 <div className="gold-divider-left" />
                 <p className="text-warm-brown font-serif text-lg font-medium leading-relaxed italic">
-                  {isHindi ? 'वैदिक पंडित और अनुष्ठान विशेषज्ञ, उज्जैन' : pandit.title}
+                  {isHindi ? 'पंडित गोविंद जी शर्मा — वैदिक पंडित और अनुष्ठान विशेषज्ञ, उज्जैन' : `Pandit Govind Ji Sharma — ${pandit.title}`}
                 </p>
               </ScrollReveal>
 

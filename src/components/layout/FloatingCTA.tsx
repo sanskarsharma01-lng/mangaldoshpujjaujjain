@@ -12,7 +12,7 @@ export const FloatingCTA: React.FC = () => {
   const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
 
   const handleContactClick = (type: 'phone' | 'whatsapp') => {
-    trackEvent(`${type}_clicked`, { source: 'floating_cta' });
+    trackEvent(type === 'phone' ? 'call_clicked' : 'whatsapp_clicked', { source: 'floating_cta' });
   };
 
   return (
@@ -67,10 +67,11 @@ export const FloatingCTA: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => handleContactClick('whatsapp')}
-          className="w-full h-full flex items-center justify-center gap-2 text-white font-semibold text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset"
+          className="bg-[#25D366] hover:bg-[#128C7E] w-full h-full flex items-center justify-center gap-2 text-white font-semibold text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-inset"
+          aria-label={t('whatsapp.chatLabel')}
         >
           <MessageCircle className="w-5 h-5 fill-white stroke-none" />
-          <span>Book Puja / Consult on WhatsApp</span>
+          <span>{t('whatsapp.chatLabel')}</span>
         </a>
       </div>
     </>

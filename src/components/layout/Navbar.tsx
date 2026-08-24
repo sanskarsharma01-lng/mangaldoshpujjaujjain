@@ -3,7 +3,6 @@ import { NavLink, Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, Menu, X } from 'lucide-react';
 import { useLanguage } from '../../contexts/LanguageContext';
-import { useBooking } from '../../contexts/BookingContext';
 import { siteConfig } from '../../data/siteConfig';
 import { trackEvent } from '../../lib/analytics';
 
@@ -57,6 +56,8 @@ const NAV_ITEMS: NavItem[] = [
 const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
   siteConfig.whatsappMessage
 )}`;
+
+const phoneUrl = `tel:${siteConfig.phone}`;
 
 
 // ─────────────────────────────────────────────
@@ -243,7 +244,6 @@ const MobileNavLink: React.FC<{
 
 export const Navbar: React.FC = () => {
   const { language, setLanguage } = useLanguage();
-  const { openBooking } = useBooking();
   const location = useLocation();
 
   const [isScrolled, setIsScrolled] = useState(false);
@@ -325,11 +325,6 @@ export const Navbar: React.FC = () => {
   const handleWhatsAppClick = useCallback(() => {
     trackEvent('whatsapp_clicked', { source: 'navbar' });
   }, []);
-
-  const handleBookPuja = useCallback(() => {
-    trackEvent('book_puja_clicked', { source: 'navbar' });
-    openBooking();
-  }, [openBooking]);
 
   const toggleMobile = useCallback(() => {
     setIsMobileOpen((prev) => !prev);
@@ -435,13 +430,14 @@ export const Navbar: React.FC = () => {
               </a>
 
               {/* Book Puja */}
-              <button
-                onClick={handleBookPuja}
-                aria-label="Book a Puja ceremony"
-                className="btn-primary text-sm px-4 py-2"
+              <a
+                href={phoneUrl}
+                onClick={() => trackEvent('book_puja_clicked', { source: 'navbar_desktop' })}
+                aria-label="Call to Book a Puja ceremony"
+                className="btn-primary text-sm px-4 py-2 inline-flex items-center justify-center text-white"
               >
                 Book Puja
-              </button>
+              </a>
             </div>
 
             {/* ── Mobile: Language + Hamburger ──── */}
@@ -600,16 +596,17 @@ export const Navbar: React.FC = () => {
                 </div>
 
                 {/* Book Puja CTA */}
-                <button
+                <a
+                  href={phoneUrl}
                   onClick={() => {
-                    handleBookPuja();
+                    trackEvent('book_puja_clicked', { source: 'navbar_mobile' });
                     closeMobile();
                   }}
-                  aria-label="Book a Puja ceremony"
-                  className="btn-primary w-full py-3 text-base"
+                  aria-label="Call to Book a Puja ceremony"
+                  className="btn-primary w-full py-3 text-base inline-flex items-center justify-center text-white"
                 >
                   <span>Book Puja Now</span>
-                </button>
+                </a>
               </div>
             </motion.div>
           </>

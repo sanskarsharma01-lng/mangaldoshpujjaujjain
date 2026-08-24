@@ -156,7 +156,7 @@ export const Footer: React.FC = () => {
                   className="flex items-center gap-3 text-ivory/80 hover:text-gold transition-colors duration-200"
                 >
                   <MessageCircle className="w-5 h-5 text-gold flex-shrink-0" />
-                  <span>WhatsApp: +91 9770581244</span>
+                  <span>WhatsApp: +{siteConfig.whatsapp.slice(0, 2)} {siteConfig.whatsapp.slice(2)}</span>
                 </a>
               </li>
             </ul>

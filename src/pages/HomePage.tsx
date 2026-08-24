@@ -80,14 +80,14 @@ export const HomePage: React.FC = () => {
 
       <main role="main">
         <HeroSection />
+        <PanditSection />
+        <PujaServices />
         <TrustStats />
         <MangalDoshIntro />
         <WhyUjjain />
-        <PujaServices />
         <HowPujaWorks />
         <HomeGallery />
         <ReelVideoSection />
-        <PanditSection />
         <UjjainLocation />
         <MangalDoshChecker />
         <Testimonials />

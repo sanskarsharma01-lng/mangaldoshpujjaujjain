@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion, Variants } from 'framer-motion';
 import { useBooking } from '../../contexts/BookingContext';
 import { useLanguage } from '../../contexts/LanguageContext';
@@ -6,44 +6,8 @@ import { siteConfig } from '../../data/siteConfig';
 import { trackEvent } from '../../lib/analytics';
 
 // ─────────────────────────────────────────────
-//  Diya Particle — floating flame element
+//  Trust items
 // ─────────────────────────────────────────────
-
-interface DivaParticleProps {
-  x: number;
-  y: number;
-  size: number;
-  duration: number;
-  delay: number;
-  opacity: number;
-}
-
-const DivaParticle: React.FC<DivaParticleProps> = ({ x, y, size, duration, delay, opacity }) => (
-  <motion.div
-    aria-hidden="true"
-    className="absolute pointer-events-none select-none"
-    style={{ left: `${x}%`, top: `${y}%`, fontSize: `${size}rem`, opacity }}
-    animate={{
-      y: [0, -20, -8, -18, 0],
-      x: [0, 4, -3, 5, 0],
-      rotate: [0, 6, -4, 5, 0],
-      opacity: [opacity, opacity * 1.3, opacity, opacity * 1.15, opacity],
-    }}
-    transition={{ duration, delay, repeat: Infinity, ease: 'easeInOut' }}
-  >
-    🪔
-  </motion.div>
-);
-
-const DIYA_PARTICLES: DivaParticleProps[] = [
-  { x: 5,  y: 15, size: 1.8, duration: 5.2, delay: 0,   opacity: 0.55 },
-  { x: 12, y: 72, size: 1.3, duration: 4.6, delay: 1.1, opacity: 0.40 },
-  { x: 88, y: 20, size: 2.0, duration: 6.0, delay: 0.6, opacity: 0.50 },
-  { x: 82, y: 68, size: 1.5, duration: 4.8, delay: 2.2, opacity: 0.45 },
-  { x: 50, y: 8,  size: 1.2, duration: 5.5, delay: 1.8, opacity: 0.35 },
-  { x: 95, y: 45, size: 1.6, duration: 4.2, delay: 0.4, opacity: 0.42 },
-  { x: 3,  y: 50, size: 1.4, duration: 5.8, delay: 3.0, opacity: 0.38 },
-];
 
 const TRUST_ITEMS = [
   'Experienced Pandits',
@@ -100,8 +64,6 @@ const CheckIcon: React.FC = () => (
 );
 
 const ScrollIndicator: React.FC = () => {
-  const { language } = useLanguage();
-
   return (
     <motion.div
     className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
@@ -168,12 +130,6 @@ const GeometricOverlay: React.FC = () => (
 export const HeroSection: React.FC = () => {
   const { openBooking } = useBooking();
   const { language } = useLanguage();
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setPrefersReducedMotion(mq.matches);
-  }, []);
 
   const whatsappUrl = `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(siteConfig.whatsappMessage)}`;
 
