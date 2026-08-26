@@ -19,6 +19,8 @@ import Testimonials from '../components/sections/Testimonials';
 import FAQSection from '../components/sections/FAQSection';
 import BlogSection from '../components/sections/BlogSection';
 import FinalCTA from '../components/sections/FinalCTA';
+import NumerologySection from '../components/sections/NumerologySection';
+import VastuSection from '../components/sections/VastuSection';
 
 export const HomePage: React.FC = () => {
 
@@ -85,6 +87,8 @@ export const HomePage: React.FC = () => {
         <TrustStats />
         <MangalDoshIntro />
         <WhyUjjain />
+        <NumerologySection />
+        <VastuSection />
         <HowPujaWorks />
         <HomeGallery />
         <ReelVideoSection />

@@ -131,5 +131,27 @@
   },
   "whatsapp": {
     "chatLabel": "Chat with Pandit Ji"
+  },
+  "numerology": {
+    "sectionTitle": "Vedic Numerology (Ank Jyotish)",
+    "sectionSubtitle": "Unlock the secrets hidden in your birth date and name. Get professional consultation for life path analysis, career numbers, and name corrections.",
+    "card1Title": "Destiny & Life Path",
+    "card1Desc": "Find your core numbers to understand your strengths, weaknesses, and life purpose.",
+    "card2Title": "Name & Business Correction",
+    "card2Desc": "Align your name or business brand spelling to attract positive planetary frequencies.",
+    "card3Title": "Yearly Predictions",
+    "card3Desc": "Plan your goals according to your personal year numbers for success and prosperity.",
+    "cta": "Get Numerology Consult"
+  },
+  "vastu": {
+    "sectionTitle": "Vastu Shastra Consultation",
+    "sectionSubtitle": "Harmonize your living space with the laws of nature. Consult with our expert Pandits to remove Vastu Dosh and invite peace, wealth, and wellness into your home or workplace.",
+    "card1Title": "Residential Vastu",
+    "card1Desc": "Guidance for houses, plots, flats, and layouts to ensure peace, harmony, and happiness of family members.",
+    "card2Title": "Commercial Vastu",
+    "card2Desc": "Optimize offices, factories, shops, and showrooms to boost sales, productivity, and wealth generation.",
+    "card3Title": "Vastu Dosh Remedies",
+    "card3Desc": "Safe, non-destructive remedies to correct layout imbalances without major construction or demolition.",
+    "cta": "Get Vastu Consultation"
   }
 }

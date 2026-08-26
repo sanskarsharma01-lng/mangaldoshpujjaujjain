@@ -368,4 +368,37 @@ export const services: Service[] = [
     metaDescription:
       'Perform Pitra Dosh Nivaran, Narayan Bali, and Pinda Daan in Ujjain at Siddhavat/Ramghat. Seek blessings of your ancestors. Contact on WhatsApp for details.',
   },
+  {
+    id: 'batuk-bhairav-puja',
+    name: 'Batuk Bhairav Puja',
+    nameHi: 'बटुक भैरव पूजा',
+    slug: 'batuk-bhairav-puja-ujjain',
+    icon: '🕉',
+    shortDescription:
+      'Traditional worship of Lord Batuk Bhairav for protection, overcoming fears, and obstacle removal.',
+    shortDescriptionHi:
+      'भय, संकट और शत्रुओं के नाश हेतु भगवान बटुक भैरव का विशेष पूजन और अनुष्ठान।',
+    fullDescription:
+      'Lord Batuk Bhairav is a child form of Lord Shiva, known for His immense protective energy. Performing Batuk Bhairav Puja in Ujjain helps in overcoming fears, removal of obstacles, protection from enemies, and clearing court disputes. This puja is performed with special mantra jaap and havan using traditional offerings.',
+    fullDescriptionHi:
+      'भगवान बटुक भैरव, शिवजी के सौम्य बाल स्वरूप हैं। इनकी पूजा करने से व्यक्ति के जीवन से सभी प्रकार के भय, शत्रु बाधा, अदालती विवाद और तंत्र बाधाएं दूर होती हैं। उज्‍जैन में की जाने वाली बटुक भैरव पूजा में विशेष मंत्र जाप, कवच पाठ और तेल-उड़द के दीपकों के साथ हवन का विधान है।',
+    features: [
+      'Conducted by experienced Vedic Pandits',
+      'Traditional Bhairav Mantra Jaap & Kavach path',
+      'Protection & enemy relief Sankalp',
+      'Special Deepdan and Havan ceremony',
+      'Prasad & security thread provided',
+    ],
+    featuresHi: [
+      'अनुभवी वैदिक पंडितों द्वारा संपन्न',
+      'बटुक भैरव मूल मंत्र जाप व कवच पाठ',
+      'शत्रु बाधा व भय निवारण संकल्प',
+      'विशेष दीपदान एवं कल्याणकारी हवन',
+      'महाप्रसाद एवं रक्षा सूत्र वितरण',
+    ],
+    image: '/images/batuk-bhairav-puja.jpg',
+    metaTitle: 'Batuk Bhairav Puja Booking Ujjain | Protection & Enemy Relief | MangalDoshPujaUjjain',
+    metaDescription:
+      'Book traditional Batuk Bhairav Puja in Ujjain. Experienced Vedic Pandits perform Batuk Bhairav Shanti Puja and Havan. Overcome fear and enemy obstacles.',
+  },
 ];

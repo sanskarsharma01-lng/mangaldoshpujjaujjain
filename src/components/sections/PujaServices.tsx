@@ -17,6 +17,7 @@ const pujaImageFallback: Record<string, string> = {
   'kaal-sarp-dosh-puja': 'https://images.unsplash.com/photo-1590076212952-b13134608c02?auto=format&fit=crop&w=600&q=80', // River banks
   'baglamukhi-havan': 'https://images.unsplash.com/photo-1561361058-c24cecae35ca?auto=format&fit=crop&w=600&q=80', // Havan fire ritual
   'pitra-dosh-nivaran': 'https://images.unsplash.com/photo-1605647540924-852290f6b0d5?auto=format&fit=crop&w=600&q=80', // Shipra river / prayer
+  'batuk-bhairav-puja': 'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=600&q=80', // Brass lamps/devotional
 };
 
 export const PujaServices: React.FC = () => {
