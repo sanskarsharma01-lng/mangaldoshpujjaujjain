@@ -24,6 +24,7 @@ const MahamrityunjayaJaapPage = lazy(() => import('./pages/services/Mahamrityunj
 const KaalSarpDoshPujaPage = lazy(() => import('./pages/services/KaalSarpDoshPujaPage'));
 const BaglamukhiHavanPage = lazy(() => import('./pages/services/BaglamukhiHavanPage'));
 const PitraDoshNivaranPage = lazy(() => import('./pages/services/PitraDoshNivaranPage'));
+const BatukBhairavPujaPage = lazy(() => import('./pages/services/BatukBhairavPujaPage'));
 
 // Legal & Fallbacks
 const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
@@ -60,6 +61,7 @@ export const App: React.FC = () => {
               <Route path="/kaal-sarp-dosh-puja-ujjain" element={<KaalSarpDoshPujaPage />} />
               <Route path="/baglamukhi-havan-ujjain" element={<BaglamukhiHavanPage />} />
               <Route path="/pitra-dosh-nivaran-puja" element={<PitraDoshNivaranPage />} />
+              <Route path="/batuk-bhairav-puja-ujjain" element={<BatukBhairavPujaPage />} />
 
               {/* Core Pages */}
               <Route path="/about" element={<AboutPage />} />

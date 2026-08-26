@@ -19,7 +19,9 @@ export type AnalyticsEvent =
   | 'package_selected'
   | 'contact_submitted'
   | 'mangal_checker_submitted'
-  | 'service_page_viewed';
+  | 'service_page_viewed'
+  | 'numerology_consult_clicked'
+  | 'vastu_consult_clicked';
 
 interface EventParams {
   [key: string]: string | number | boolean | undefined;

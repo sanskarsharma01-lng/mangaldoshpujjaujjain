@@ -41,6 +41,7 @@ const NAV_ITEMS: NavItem[] = [
       { label: 'Rudrabhishek Puja', labelHi: 'रुद्राभिषेक पूजा', href: '/rudrabhishek' },
       { label: 'Baglamukhi Havan', labelHi: 'बगलामुखी हवन', href: '/baglamukhi-havan-ujjain' },
       { label: 'Pitra Dosh Nivaran', labelHi: 'पितृ दोष निवारण', href: '/pitra-dosh-nivaran-puja' },
+      { label: 'Batuk Bhairav Puja', labelHi: 'बटुक भैरव पूजा', href: '/batuk-bhairav-puja-ujjain' },
     ],
   },
   { label: 'Gallery', labelHi: 'गैलरी', href: '/gallery' },
