@@ -32,7 +32,6 @@ export const BlogPage: React.FC = () => {
           <div className="container-custom">
             <Breadcrumb
               items={[
-                { label: 'Home', href: '/' },
                 { label: 'Blog & Guides' },
               ]}
             />

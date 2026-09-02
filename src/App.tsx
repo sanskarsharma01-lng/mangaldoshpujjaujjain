@@ -31,6 +31,7 @@ const PrivacyPolicyPage = lazy(() => import('./pages/PrivacyPolicyPage'));
 const TermsPage = lazy(() => import('./pages/TermsPage'));
 const DisclaimerPage = lazy(() => import('./pages/DisclaimerPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
+const PujaPackagesPage = lazy(() => import('./pages/PujaPackagesPage'));
 
 // Elegant loading fallback
 const PageLoader: React.FC = () => (
@@ -64,6 +65,7 @@ export const App: React.FC = () => {
               <Route path="/batuk-bhairav-puja-ujjain" element={<BatukBhairavPujaPage />} />
 
               {/* Core Pages */}
+              <Route path="/puja-packages" element={<PujaPackagesPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/faq" element={<FAQPage />} />
               <Route path="/contact" element={<ContactPage />} />

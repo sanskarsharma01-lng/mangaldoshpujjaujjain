@@ -6,152 +6,210 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://mangaldoshpujaujjain.com/</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://mangaldoshpujaaujjain.com/</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 
-  <!-- Main Service Pages -->
+  <!-- Primary Service Pages (highest priority) -->
   <url>
-    <loc>https://mangaldoshpujaujjain.com/mangal-dosh-puja-ujjain</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://mangaldoshpujaaujjain.com/mangal-dosh-puja-ujjain</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://mangaldoshpujaujjain.com/mangal-bhat-puja-ujjain</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://mangaldoshpujaaujjain.com/mangal-bhat-puja-ujjain</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://mangaldoshpujaujjain.com/mangal-shanti-puja</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://mangaldoshpujaujjain.com/navgraha-shanti-puja</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://mangaldoshpujaujjain.com/rudrabhishek</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <!-- Main Pages -->
-  <url>
-    <loc>https://mangaldoshpujaujjain.com/puja-packages</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://mangaldoshpujaaujjain.com/kaal-sarp-dosh-puja-ujjain</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- Secondary Service Pages -->
   <url>
-    <loc>https://mangaldoshpujaujjain.com/about</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://mangaldoshpujaaujjain.com/mangal-shanti-puja</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/navgraha-shanti-puja</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/rudrabhishek</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/mahakaleshwar-puja-ujjain</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/mahamrityunjaya-jaap-ujjain</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/baglamukhi-havan-ujjain</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mangaldoshpujaujjain.com/contact</loc>
-    <lastmod>2026-08-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://mangaldoshpujaujjain.com/faq</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://mangaldoshpujaaujjain.com/pitra-dosh-nivaran-puja</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mangaldoshpujaujjain.com/gallery</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://mangaldoshpujaaujjain.com/batuk-bhairav-puja-ujjain</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Core Pages -->
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/puja-packages</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/about</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/contact</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/faq</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/gallery</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Blog -->
+  <!-- Blog Index -->
   <url>
-    <loc>https://mangaldoshpujaujjain.com/blog</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://mangaldoshpujaaujjain.com/blog</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
 
+  <!-- Blog Posts -->
   <url>
-    <loc>https://mangaldoshpujaujjain.com/blog/what-is-mangal-dosh-complete-guide</loc>
+    <loc>https://mangaldoshpujaaujjain.com/blog/what-is-mangal-dosh-complete-guide</loc>
     <lastmod>2025-12-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mangaldoshpujaujjain.com/blog/mangal-bhat-puja-ujjain-process</loc>
+    <loc>https://mangaldoshpujaaujjain.com/blog/mangal-bhat-puja-ujjain-process</loc>
     <lastmod>2025-12-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mangaldoshpujaujjain.com/blog/why-visit-ujjain-for-mangal-dosh-puja</loc>
+    <loc>https://mangaldoshpujaaujjain.com/blog/why-visit-ujjain-for-mangal-dosh-puja</loc>
     <lastmod>2025-12-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mangaldoshpujaujjain.com/blog/mangal-dosh-puja-what-to-know-before-booking</loc>
+    <loc>https://mangaldoshpujaaujjain.com/blog/mangal-dosh-puja-what-to-know-before-booking</loc>
     <lastmod>2025-12-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://mangaldoshpujaujjain.com/blog/mangalnath-temple-ujjain</loc>
+    <loc>https://mangaldoshpujaaujjain.com/blog/mangalnath-temple-ujjain</loc>
     <lastmod>2025-12-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://mangaldoshpujaujjain.com/blog/how-to-plan-ujjain-puja-visit</loc>
+    <loc>https://mangaldoshpujaaujjain.com/blog/how-to-plan-ujjain-puja-visit</loc>
     <lastmod>2025-12-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
-  <!-- Legal -->
   <url>
-    <loc>https://mangaldoshpujaujjain.com/privacy-policy</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://mangaldoshpujaaujjain.com/blog/kaal-sarp-dosh-puja-ujjain-guide</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/blog/mangal-dosh-puja-vs-mangal-bhat-puja</loc>
+    <lastmod>2026-09-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Legal (low priority, noindex not required) -->
+  <url>
+    <loc>https://mangaldoshpujaaujjain.com/privacy-policy</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://mangaldoshpujaujjain.com/terms-and-conditions</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://mangaldoshpujaaujjain.com/terms-and-conditions</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 
   <url>
-    <loc>https://mangaldoshpujaujjain.com/disclaimer</loc>
-    <lastmod>2026-08-23</lastmod>
+    <loc>https://mangaldoshpujaaujjain.com/disclaimer</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

@@ -35,6 +35,16 @@ export const services: Service[] = [
     metaTitle: 'Mangal Dosh Puja Ujjain | Mangal Dosh Nivaran Puja | MangalDoshPujaUjjain',
     metaDescription:
       'Book traditional Mangal Dosh Puja in Ujjain. Experienced Vedic Pandits perform Mangal Dosh Nivaran Puja following authentic Vedic procedures. Enquire now.',
+    faqs: [
+        {
+            "question": "How is Mangal Dosh Puja performed in Ujjain?",
+            "answer": "It is performed by experienced Vedic Pandits following traditional scriptural methods including Sankalp, Navgraha Pujan, Mangal Mantra Jaap, and Havan."
+        },
+        {
+            "question": "What is the duration of Mangal Dosh Puja?",
+            "answer": "The complete Mangal Dosh Puja usually takes about 2 to 3 hours depending on the specific rituals and package chosen."
+        }
+    ]
   },
   {
     id: 'mangal-bhat-puja',
@@ -68,6 +78,16 @@ export const services: Service[] = [
     metaTitle: 'Mangal Bhat Puja in Ujjain | Mangal Bhat Puja Booking | MangalDoshPujaUjjain',
     metaDescription:
       'Book Mangal Bhat Puja in Ujjain with experienced Pandits. Traditional ceremony performed at sacred Ujjain. Enquire about booking and packages.',
+    faqs: [
+        {
+            "question": "Why is Bhat (rice) used in this puja?",
+            "answer": "According to local Ujjain tradition, offering cooked rice (Bhat) to the Shivalinga at Mangalnath Temple is considered a highly auspicious way to seek the blessings of Lord Mangal."
+        },
+        {
+            "question": "Can I do Mangal Bhat Puja online?",
+            "answer": "Yes, if you cannot visit Ujjain physically, our Pandits can perform the Mangal Bhat Puja on your behalf (Sankalp) and send you the video and Prasad."
+        }
+    ]
   },
   {
     id: 'mangal-shanti-puja',
@@ -101,6 +121,16 @@ export const services: Service[] = [
     metaTitle: 'Mangal Shanti Puja Ujjain | Traditional Vedic Ritual | MangalDoshPujaUjjain',
     metaDescription:
       'Book Mangal Shanti Puja in Ujjain. Traditional Vedic rituals performed by experienced Pandits. Explore packages and enquire online.',
+    faqs: [
+        {
+            "question": "What is the difference between Mangal Shanti and Mangal Dosh Puja?",
+            "answer": "Mangal Shanti is a general pacification ritual for Lord Mangal, often performed for general well-being or specific transits, whereas Mangal Dosh Puja specifically addresses the Manglik dosh in a birth chart."
+        },
+        {
+            "question": "What items are required for Mangal Shanti?",
+            "answer": "All required puja samagri (red flowers, red cloth, masoor dal, etc.) are arranged by our Pandit Ji as part of the package."
+        }
+    ]
   },
   {
     id: 'navgraha-shanti',
@@ -134,6 +164,16 @@ export const services: Service[] = [
     metaTitle: 'Navgraha Shanti Puja Ujjain | Nine Planets Puja | MangalDoshPujaUjjain',
     metaDescription:
       'Book Navgraha Shanti Puja in Ujjain. Traditional worship of all nine planetary deities. Experienced Pandits, Vedic procedures.',
+    faqs: [
+        {
+            "question": "What is Navgraha Shanti Puja?",
+            "answer": "It is a comprehensive Vedic ritual performed to seek the blessings and pacify the malefic effects of all nine planets (Navgraha) in one birth chart."
+        },
+        {
+            "question": "How long does Navgraha Shanti take?",
+            "answer": "Because it involves invoking and chanting mantras for all nine planets, it usually takes 3 to 4 hours to complete."
+        }
+    ]
   },
   {
     id: 'rudrabhishek',
@@ -169,6 +209,16 @@ export const services: Service[] = [
     metaTitle: 'Rudrabhishek Puja Ujjain | Shiva Abhishek in Ujjain | MangalDoshPujaUjjain',
     metaDescription:
       'Book Rudrabhishek Puja in Ujjain. Sacred Shiva worship with traditional Vedic mantras. Experienced Pandits, Ujjain-based puja services.',
+    faqs: [
+        {
+            "question": "What is Rudrabhishek?",
+            "answer": "Rudrabhishek is a sacred ritual where Lord Shiva is worshipped in His Rudra form by offering a continuous stream of sacred liquids like milk, ghee, honey, and water while chanting Vedic mantras."
+        },
+        {
+            "question": "Why perform Rudrabhishek in Ujjain?",
+            "answer": "Ujjain is the city of Mahakal (Lord Shiva). Performing Rudrabhishek here is considered extraordinarily auspicious for overcoming obstacles and seeking health and prosperity."
+        }
+    ]
   },
   {
     id: 'special-havan',
@@ -235,6 +285,16 @@ export const services: Service[] = [
     metaTitle: 'Mahakaleshwar Puja Booking Ujjain | Lord Shiva Abhishek | MangalDoshPujaUjjain',
     metaDescription:
       'Book authentic Mahakaleshwar Puja and Panchamrit Abhishek in Ujjain. Performed by experienced Vedic priests following traditional shastras. Enquire on WhatsApp.',
+    faqs: [
+        {
+            "question": "What is Mahakaleshwar Puja?",
+            "answer": "It is a special worship dedicated to Lord Mahakaleshwar, the presiding deity of Ujjain and one of the twelve Jyotirlingas, seeking His divine grace and protection."
+        },
+        {
+            "question": "Do you arrange VIP Darshan for Mahakaleshwar?",
+            "answer": "We arrange the traditional Puja rituals. Temple darshan protocols are managed by the temple committee, but we provide guidance to our yajmans on the process."
+        }
+    ]
   },
   {
     id: 'mahamrityunjaya-jaap',
@@ -268,6 +328,16 @@ export const services: Service[] = [
     metaTitle: 'Mahamrityunjaya Jaap Booking Ujjain | Shiva Mantra Jaap | MangalDoshPujaUjjain',
     metaDescription:
       'Perform Vedic Mahamrityunjaya Jaap in Ujjain for health, protection, and long life. Chanted by qualified Vedic pandits with complete ritual processes.',
+    faqs: [
+        {
+            "question": "What is the benefit of Mahamrityunjaya Jaap?",
+            "answer": "According to Vedic scriptures, chanting the Mahamrityunjaya Mantra creates a powerful protective shield that promotes physical healing, mental peace, and spiritual growth."
+        },
+        {
+            "question": "How many mantras are chanted?",
+            "answer": "The Jaap can be customized. A full anushthan involves 1.25 Lakh chants performed by a group of Pandits over several days, but smaller single-day versions are also available."
+        }
+    ]
   },
   {
     id: 'kaal-sarp-dosh-puja',
@@ -301,6 +371,16 @@ export const services: Service[] = [
     metaTitle: 'Kaal Sarp Dosh Puja Ujjain | Kaal Sarp Shanti Booking | MangalDoshPujaUjjain',
     metaDescription:
       'Book traditional Kaal Sarp Dosh Shanti Puja at Ramghat or Siddhavat in Ujjain. Mitigate planetary obstacles with authentic Vedic rituals. Contact on WhatsApp.',
+    faqs: [
+        {
+            "question": "What causes Kaal Sarp Dosh?",
+            "answer": "In Vedic astrology, it occurs when all seven major planets are placed between Rahu and Ketu in the birth chart. There are 12 different types of this dosh."
+        },
+        {
+            "question": "How is the Puja performed?",
+            "answer": "The ritual involves the worship of Lord Shiva, Rahu, and Ketu, followed by the symbolic offering (Daan) of silver or gold Nag-Nagin (serpents) in the river."
+        }
+    ]
   },
   {
     id: 'baglamukhi-havan',
@@ -334,6 +414,16 @@ export const services: Service[] = [
     metaTitle: 'Baglamukhi Havan Ujjain | Pitambara Baglamukhi Puja | MangalDoshPujaUjjain',
     metaDescription:
       'Book Goddess Baglamukhi Havan in Ujjain for protection from enemies and victory in litigation. Conducted by expert Vedic priests with full shastric rites.',
+    faqs: [
+        {
+            "question": "Who is Maa Baglamukhi?",
+            "answer": "Maa Baglamukhi is one of the ten Mahavidyas in Hindu tradition, known for Her power to paralyze enemies, remove obstacles, and grant victory in legal or competitive matters."
+        },
+        {
+            "question": "What is a Baglamukhi Havan?",
+            "answer": "It is a specific fire ritual (Yagya) offering oblations while chanting Maa Baglamukhi secret mantras, traditionally performed using yellow materials like turmeric and yellow mustard."
+        }
+    ]
   },
   {
     id: 'pitra-dosh-nivaran',
@@ -367,6 +457,16 @@ export const services: Service[] = [
     metaTitle: 'Pitra Dosh Nivaran Puja Ujjain | Narayan Bali Booking | MangalDoshPujaUjjain',
     metaDescription:
       'Perform Pitra Dosh Nivaran, Narayan Bali, and Pinda Daan in Ujjain at Siddhavat/Ramghat. Seek blessings of your ancestors. Contact on WhatsApp for details.',
+    faqs: [
+        {
+            "question": "What is Pitra Dosh?",
+            "answer": "Pitra Dosh is an astrological condition indicating ancestral displeasure or unfulfilled duties towards forefathers, which is traditionally believed to cause obstacles in family growth and harmony."
+        },
+        {
+            "question": "Where is Pitra Dosh Puja performed in Ujjain?",
+            "answer": "The primary locations for ancestral rituals in Ujjain are the Bherugarh area (Siddhavat) and Ramghat on the banks of the sacred Shipra river."
+        }
+    ]
   },
   {
     id: 'batuk-bhairav-puja',
@@ -400,5 +500,15 @@ export const services: Service[] = [
     metaTitle: 'Batuk Bhairav Puja Booking Ujjain | Protection & Enemy Relief | MangalDoshPujaUjjain',
     metaDescription:
       'Book traditional Batuk Bhairav Puja in Ujjain. Experienced Vedic Pandits perform Batuk Bhairav Shanti Puja and Havan. Overcome fear and enemy obstacles.',
+    faqs: [
+        {
+            "question": "Who is Batuk Bhairav?",
+            "answer": "Batuk Bhairav is the child form of Lord Kal Bhairav. He is worshipped as a protective deity who quickly responds to devotees prayers and removes sudden crises."
+        },
+        {
+            "question": "Why perform Batuk Bhairav Puja?",
+            "answer": "This puja is traditionally recommended for protection from hidden enemies, overcoming irrational fears, and ensuring safety during travels and new ventures."
+        }
+    ]
   },
 ];

@@ -7,7 +7,7 @@ Disallow: /admin/
 Disallow: /.env
 
 # Sitemap
-Sitemap: https://mangaldoshpujaujjain.com/sitemap.xml
+Sitemap: https://mangaldoshpujaaujjain.com/sitemap.xml
 
 # Crawl delay (optional, helps with server load)
 Crawl-delay: 1

@@ -17,6 +17,12 @@ export interface Service {
   image?: string;
   metaTitle: string;
   metaDescription: string;
+  faqs?: {
+    question: string;
+    answer: string;
+    questionHi?: string;
+    answerHi?: string;
+  }[];
 }
 
 export interface Package {

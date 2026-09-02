@@ -22,11 +22,11 @@ export const FAQPage: React.FC = () => {
   const title = `Frequently Asked Questions | Mangal Dosh Puja Ujjain | ${siteConfig.name}`;
   const description = `Get answers to your queries about Mangal Dosh planetary alignments, traditional Mangal Bhat Puja in Ujjain, online booking processes, and traveling tips.`;
 
-  // Structured data schema
+  // Schema always uses ALL faqs so Google sees the complete FAQ set regardless of active tab
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: filteredFaqs.map(faq => ({
+    mainEntity: faqs.map(faq => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -47,7 +47,6 @@ export const FAQPage: React.FC = () => {
           <div className="container-custom">
             <Breadcrumb
               items={[
-                { label: 'Home', href: '/' },
                 { label: t('nav.faqs') },
               ]}
             />

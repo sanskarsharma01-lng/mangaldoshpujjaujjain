@@ -1,7 +1,7 @@
 import type { SiteConfig } from '../types';
 
 export const siteConfig: SiteConfig = {
-  name: 'MangalDoshPujaUjjain',
+  name: 'Mangal Dosh Puja Ujjain',
   tagline: 'Authentic Mangal Dosh Puja in Ujjain',
   secondaryTagline: 'Vedic Rituals • Experienced Pandits • Sacred Ujjain',
 
@@ -9,7 +9,7 @@ export const siteConfig: SiteConfig = {
   phone: import.meta.env.VITE_PHONE_NUMBER || '9926410652',
   whatsapp: import.meta.env.VITE_WHATSAPP_NUMBER || '919926410652',
   whatsappMessage: 'Namaste, I would like to enquire about Mangal Dosh Puja in Ujjain.',
-  email: import.meta.env.VITE_EMAIL || 'info@mangaldoshpujaujjain.com',
+  email: import.meta.env.VITE_EMAIL || 'info@mangaldoshpujaaujjain.com',
 
   // ── Location ──
   address: 'Near Mangalnath Temple, Ujjain',
@@ -27,10 +27,10 @@ export const siteConfig: SiteConfig = {
 
   // ── SEO ──
   seo: {
-    siteUrl: 'https://mangaldoshpujaujjain.com',
-    defaultTitle: 'Mangal Dosh Puja in Ujjain | Mangal Bhat Puja | MangalDoshPujaUjjain',
+    siteUrl: 'https://mangaldoshpujaaujjain.com',
+    defaultTitle: 'Mangal Dosh Puja in Ujjain | Mangal Bhat Puja Booking | MangalDoshPujaUjjain',
     defaultDescription:
-      'Book Mangal Dosh Puja and Mangal Bhat Puja in Ujjain. Explore traditional Vedic rituals, puja packages, booking options and guidance from experienced Pandits.',
+      'Book Mangal Dosh Puja and Mangal Bhat Puja in Ujjain with experienced Pandit Ji. Explore puja details, packages, dates, and easy booking options.',
     ogImage: '/og-image.jpg',
   },
 };

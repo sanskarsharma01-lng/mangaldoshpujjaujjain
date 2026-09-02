@@ -287,4 +287,113 @@ During your Ujjain visit, consider visiting:
     tags: ['Ujjain Travel', 'Planning Guide', 'Pilgrimage', 'Puja'],
     relatedSlugs: ['why-visit-ujjain-for-mangal-dosh-puja', 'mangalnath-temple-ujjain'],
   },
+  {
+    id: 'blog-7',
+    slug: 'kaal-sarp-dosh-puja-ujjain-guide',
+    title: 'Kaal Sarp Dosh Puja in Ujjain: Complete Guide',
+    metaTitle: 'Kaal Sarp Dosh Puja in Ujjain: Complete Guide | MangalDoshPujaUjjain',
+    metaDescription:
+      'Everything you need to know about Kaal Sarp Dosh Puja in Ujjain — its traditional significance, procedure, where it is performed, and how to book.',
+    excerpt:
+      'According to Vedic tradition, Kaal Sarp Dosh Puja is performed at sacred sites in Ujjain to address the planetary formation of Rahu-Ketu. Learn about the procedure, significance, and booking process.',
+    content: `According to Vedic astrology, Kaal Sarp Dosh is a significant planetary formation in which all seven major planets are positioned between the shadow planets Rahu and Ketu in the birth chart. Ujjain is one of the most revered locations in India for performing Kaal Sarp Dosh Shanti Puja.
+
+## What is Kaal Sarp Dosh?
+
+In traditional Vedic astrology, when all seven classical planets (Surya, Chandra, Mangal, Budh, Brihaspati, Shukra, and Shani) are hemmed between Rahu and Ketu in a birth chart, this formation is called Kaal Sarp Yoga or Kaal Sarp Dosh. The effects attributed to this formation in traditional astrology vary based on the specific type and houses involved.
+
+There are twelve types of Kaal Sarp Dosh, named after different serpents in Vedic tradition, depending on the position of Rahu and Ketu in the birth chart.
+
+## Why Perform Kaal Sarp Dosh Puja in Ujjain?
+
+Ujjain holds exceptional significance for Kaal Sarp Dosh Puja for several traditional reasons:
+
+- **Ramghat**: The sacred ghats on the Shipra River in Ujjain are considered particularly auspicious for Rahu-Ketu related rituals
+- **Siddhavat**: This ancient peepal tree site in Ujjain has deep significance in Vedic tradition for planetary peace rituals
+- **Mahakaleshwar**: Being a Jyotirlinga city, Ujjain's spiritual energy makes it a preferred location for powerful shanti rituals
+
+## The Kaal Sarp Dosh Puja Procedure
+
+The traditional Kaal Sarp Dosh Shanti Puja at Ujjain involves several stages:
+
+1. **Sankalp**: The ritual intention is formally established by the Pandit on behalf of the devotee
+2. **Nag-Nagin Pujan**: Worship of the serpent deities associated with Rahu and Ketu
+3. **Rahu-Ketu Mantra Jaap**: Chanting of specific Rahu and Ketu mantras
+4. **Rudrabhishek**: A sacred Shiva abhishek is often included as part of the ritual
+5. **Gold Nag-Nagin Daan**: Traditional offering of a symbolic gold serpent pair
+6. **Havan**: Sacred fire ritual with specific offerings
+7. **Aarti and Prasad**: The ceremony concludes with aarti and distribution of prasad
+
+## Duration and Preparation
+
+The Kaal Sarp Dosh Puja typically takes between 2 to 4 hours depending on the package and specific rituals involved. Devotees are advised to:
+
+- Fast on the day of the puja if their health permits
+- Wear clean, traditional clothing
+- Arrive at the designated time
+- Bring their birth details for the Sankalp
+
+## Booking Kaal Sarp Dosh Puja in Ujjain
+
+Contact our team via WhatsApp or phone to enquire about available dates, packages, and the complete process for Kaal Sarp Dosh Puja in Ujjain. We will guide you through every step of the booking and help you prepare.`,
+    featuredImage: '/images/kaal-sarp-dosh-puja.jpg',
+    author: 'MangalDoshPujaUjjain Team',
+    publishedDate: '2026-09-02',
+    updatedDate: '2026-09-02',
+    category: 'Puja Guide',
+    tags: ['Kaal Sarp Dosh', 'Kaal Sarp Puja', 'Ujjain', 'Rahu Ketu', 'Vedic Ritual'],
+    relatedSlugs: ['why-visit-ujjain-for-mangal-dosh-puja', 'mangal-dosh-puja-what-to-know-before-booking'],
+  },
+  {
+    id: 'blog-8',
+    slug: 'mangal-dosh-puja-vs-mangal-bhat-puja',
+    title: 'Mangal Dosh Puja vs Mangal Bhat Puja: Key Differences',
+    metaTitle: 'Mangal Dosh Puja vs Mangal Bhat Puja: Key Differences | MangalDoshPujaUjjain',
+    metaDescription:
+      'Understand the difference between Mangal Dosh Puja and Mangal Bhat Puja in Ujjain — what each involves, who should perform which, and how to choose the right ritual.',
+    excerpt:
+      'Mangal Dosh Puja and Mangal Bhat Puja are both associated with Mangal Dosha remedies in Ujjain, but they are different ceremonies. This guide explains the key differences to help you choose.',
+    content: `Many devotees who enquire about Mangal Dosh Puja in Ujjain often ask: what is the difference between Mangal Dosh Puja and Mangal Bhat Puja? Both are associated with addressing Mangal-related concerns according to Vedic tradition, but they are distinct ceremonies with different ritual procedures.
+
+## Mangal Dosh Puja: An Overview
+
+Mangal Dosh Puja is a broader ritual category encompassing traditional Vedic ceremonies performed to seek the blessings of Lord Mangal (Mars). According to traditional Vedic astrology, devotees who have a Mangal placement in certain houses of their birth chart may choose to perform this puja.
+
+The ritual typically includes:
+- **Mantra Jaap**: Chanting of Mangal mantras
+- **Havan**: Sacred fire ritual
+- **Abhishek**: Ritual bath of the deity
+- **Aarti and Prasad**: Conclusion of the ceremony
+
+## Mangal Bhat Puja: An Overview
+
+Mangal Bhat Puja is a specific traditional ceremony that has particular significance in the Ujjain tradition and is especially associated with the Mangalnath Temple. The word "Bhat" refers to cooked rice (chawal), which plays a central role in this specific ceremony.
+
+According to local Vedic tradition in Ujjain, Mangal Bhat Puja involves:
+- **Bhat (Rice) Offering**: Cooked rice is prepared and offered as part of the ritual
+- **Shivalinga Shringar**: The Shivalinga is adorned with the offered rice
+- **Traditional Mangal Worship**: Lord Mangal is worshipped following specific procedures
+- **Sankalp and Havan**: Intention setting and fire ritual
+
+## Key Differences
+
+**Origin and Tradition**: Mangal Bhat Puja is specifically associated with Ujjain's local Vedic tradition and the Mangalnath Temple. It is considered one of the most traditional ceremonies for Mangal-related concerns performed at this location.
+
+**Ritual Procedure**: The "Bhat" (rice) element is central to Mangal Bhat Puja and distinguishes it from the general Mangal Dosh Puja.
+
+**Scope**: Mangal Dosh Puja is a broader term that can encompass various rituals; Mangal Bhat Puja refers to a specific traditional ceremony.
+
+## Which Should You Choose?
+
+The appropriate puja depends on your specific situation, the advice of your astrologer or Pandit, and your personal devotion. Our Pandit Ji can guide you on which ceremony is most appropriate after understanding your requirements.
+
+Contact our team via WhatsApp to discuss your requirements and receive guidance from our experienced Pandit Ji.`,
+    featuredImage: '/images/mangal-bhat-puja.jpg',
+    author: 'MangalDoshPujaUjjain Team',
+    publishedDate: '2026-09-02',
+    updatedDate: '2026-09-02',
+    category: 'Mangal Dosh',
+    tags: ['Mangal Dosh Puja', 'Mangal Bhat Puja', 'Ujjain', 'Comparison', 'Puja Guide'],
+    relatedSlugs: ['what-is-mangal-dosh-complete-guide', 'mangal-bhat-puja-ujjain-process'],
+  },
 ];

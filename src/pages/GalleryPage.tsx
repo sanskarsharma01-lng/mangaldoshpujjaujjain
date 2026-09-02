@@ -55,7 +55,6 @@ export const GalleryPage: React.FC = () => {
           <div className="container-custom">
             <Breadcrumb
               items={[
-                { label: 'Home', href: '/' },
                 { label: 'Spiritual Gallery' },
               ]}
             />
