@@ -24,7 +24,6 @@ export const ContactPage: React.FC = () => {
           <div className="container-custom">
             <Breadcrumb
               items={[
-                { label: 'Home', href: '/' },
                 { label: t('nav.contact') },
               ]}
             />

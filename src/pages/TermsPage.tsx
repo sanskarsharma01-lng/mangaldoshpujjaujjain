@@ -16,7 +16,6 @@ export const TermsPage: React.FC = () => {
           <div className="container-custom">
             <Breadcrumb
               items={[
-                { label: 'Home', href: '/' },
                 { label: 'Terms & Conditions' },
               ]}
             />

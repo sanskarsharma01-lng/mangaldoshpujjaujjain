@@ -16,7 +16,6 @@ export const PrivacyPolicyPage: React.FC = () => {
           <div className="container-custom">
             <Breadcrumb
               items={[
-                { label: 'Home', href: '/' },
                 { label: 'Privacy Policy' },
               ]}
             />

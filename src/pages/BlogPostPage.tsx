@@ -8,6 +8,24 @@ import { StructuredData } from '../components/seo/StructuredData';
 import { ScrollReveal } from '../components/ui/ScrollReveal';
 import FinalCTA from '../components/sections/FinalCTA';
 
+/** Renders **bold** markdown syntax as <strong> elements */
+const renderInlineBold = (text: string): React.ReactNode => {
+  const parts = text.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={i}>{part.slice(2, -2)}</strong>;
+    }
+    return part;
+  });
+};
+
+/** Renders a numbered list item like "1. **Sankalp**: text" */
+const renderListItem = (text: string): React.ReactNode => {
+  // Remove leading "- " or "1. " etc.
+  const clean = text.replace(/^(\d+\.\s+|-\s+)/, '');
+  return renderInlineBold(clean);
+};
+
 export const BlogPostPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
 
@@ -23,16 +41,28 @@ export const BlogPostPage: React.FC = () => {
 
   const canonical = `${siteConfig.seo.siteUrl}/blog/${post.slug}`;
 
-  // Article schema
+  // Use the post's featured image for schema; fall back to site OG image
+  const articleImage = post.featuredImage
+    ? (post.featuredImage.startsWith('http')
+        ? post.featuredImage
+        : `${siteConfig.seo.siteUrl}${post.featuredImage}`)
+    : `${siteConfig.seo.siteUrl}${siteConfig.seo.ogImage}`;
+
+  // Article structured data
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonical,
+    },
     headline: post.title,
     description: post.excerpt,
-    image: `${siteConfig.seo.siteUrl}${siteConfig.seo.ogImage}`,
+    image: articleImage,
     author: {
-      '@type': 'Person',
-      name: post.author,
+      '@type': 'Organization',
+      name: siteConfig.name,
+      url: siteConfig.seo.siteUrl,
     },
     publisher: {
       '@type': 'Organization',
@@ -44,32 +74,41 @@ export const BlogPostPage: React.FC = () => {
     },
     datePublished: post.publishedDate,
     dateModified: post.updatedDate || post.publishedDate,
+    keywords: post.tags.join(', '),
   };
 
-  // Find related articles (excluding the current one)
-  const relatedPosts = blogPosts
-    .filter((p) => p.id !== post.id && p.category === post.category)
-    .slice(0, 2);
+  // Related posts: first try relatedSlugs, then fall back to same-category
+  const relatedPosts = (() => {
+    if (post.relatedSlugs && post.relatedSlugs.length > 0) {
+      return post.relatedSlugs
+        .map((s) => blogPosts.find((p) => p.slug === s))
+        .filter((p): p is typeof blogPosts[number] => !!p)
+        .slice(0, 2);
+    }
+    return blogPosts
+      .filter((p) => p.id !== post.id && p.category === post.category)
+      .slice(0, 2);
+  })();
 
   return (
     <>
       <SEOHead
-        title={`${post.metaTitle} | ${siteConfig.name}`}
+        title={post.metaTitle}
         description={post.metaDescription}
         canonical={canonical}
         ogType="article"
+        ogImage={post.featuredImage || siteConfig.seo.ogImage}
         publishedTime={post.publishedDate}
         modifiedTime={post.updatedDate}
       />
       <StructuredData data={articleSchema} />
 
       <main role="main" className="pt-24 md:pt-28 bg-ivory min-h-screen">
-        {/* Breadcrumb */}
+        {/* Breadcrumb — Breadcrumb auto-prepends Home */}
         <div className="bg-cream/40 border-b border-gold/15 py-4">
           <div className="container-custom">
             <Breadcrumb
               items={[
-                { label: 'Home', href: '/' },
                 { label: 'Blog', href: '/blog' },
                 { label: post.title },
               ]}
@@ -91,42 +130,93 @@ export const BlogPostPage: React.FC = () => {
               <span>By <strong>{post.author}</strong></span>
               <span>•</span>
               <time dateTime={post.publishedDate}>{post.publishedDate}</time>
+              {post.updatedDate && post.updatedDate !== post.publishedDate && (
+                <>
+                  <span>•</span>
+                  <span>Updated: <time dateTime={post.updatedDate}>{post.updatedDate}</time></span>
+                </>
+              )}
             </div>
           </div>
         </header>
 
         {/* Article Body */}
-        <article className="section-padding bg-ivory">
+        <article className="section-padding bg-ivory" itemScope itemType="https://schema.org/BlogPosting">
           <div className="container-custom max-w-3xl mx-auto">
             <ScrollReveal direction="up" className="prose max-w-none prose-headings:font-poppins prose-headings:font-bold prose-headings:text-primary prose-a:text-gold prose-strong:text-text-dark text-text-muted leading-relaxed space-y-6">
-              {/* Splitting fake Markdown paragraphs for display */}
               {post.content.split('\n\n').map((para, idx) => {
                 if (para.startsWith('## ')) {
-                  return <h2 key={idx} className="text-2xl font-bold pt-6 border-b border-gold/10 pb-2">{para.replace('## ', '')}</h2>;
+                  return (
+                    <h2 key={idx} className="text-2xl font-bold pt-6 border-b border-gold/10 pb-2">
+                      {para.replace('## ', '')}
+                    </h2>
+                  );
                 }
                 if (para.startsWith('### ')) {
-                  return <h3 key={idx} className="text-xl font-bold pt-4">{para.replace('### ', '')}</h3>;
+                  return (
+                    <h3 key={idx} className="text-xl font-bold pt-4">
+                      {para.replace('### ', '')}
+                    </h3>
+                  );
                 }
-                if (para.startsWith('- ')) {
+                // Numbered list (1. item)
+                if (/^\d+\.\s/.test(para.trim())) {
+                  return (
+                    <ol key={idx} className="list-decimal pl-6 space-y-2">
+                      {para.split('\n').map((li, lIdx) => (
+                        li.trim() ? (
+                          <li key={lIdx} className="text-sm md:text-base leading-relaxed">
+                            {renderListItem(li)}
+                          </li>
+                        ) : null
+                      ))}
+                    </ol>
+                  );
+                }
+                // Unordered list (- item)
+                if (para.trim().startsWith('- ')) {
                   return (
                     <ul key={idx} className="list-disc pl-6 space-y-2">
                       {para.split('\n').map((li, lIdx) => (
-                        <li key={lIdx}>{li.replace('- ', '')}</li>
+                        li.trim() ? (
+                          <li key={lIdx} className="text-sm md:text-base leading-relaxed">
+                            {renderListItem(li)}
+                          </li>
+                        ) : null
                       ))}
                     </ul>
                   );
                 }
-                return <p key={idx} className="text-sm md:text-base leading-relaxed">{para}</p>;
+                // Regular paragraph with inline bold support
+                return (
+                  <p key={idx} className="text-sm md:text-base leading-relaxed">
+                    {renderInlineBold(para)}
+                  </p>
+                );
               })}
             </ScrollReveal>
+
+            {/* Article Tags */}
+            {post.tags && post.tags.length > 0 && (
+              <div className="mt-10 pt-6 border-t border-gold/15 flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 text-xs font-medium bg-gold/10 text-gold-dark border border-gold/20 rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
           </div>
         </article>
 
         {/* Related Posts */}
         {relatedPosts.length > 0 && (
-          <section className="section-padding bg-cream/30 border-t border-gold/10">
+          <section className="section-padding bg-cream/30 border-t border-gold/10" aria-label="Related articles">
             <div className="container-custom max-w-4xl mx-auto">
-              <h3 className="text-2xl font-poppins font-bold text-primary mb-8 text-center">Related Articles</h3>
+              <h2 className="text-2xl font-poppins font-bold text-primary mb-8 text-center">Related Articles</h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
                 {relatedPosts.map((rPost) => (
                   <Link
@@ -138,9 +228,9 @@ export const BlogPostPage: React.FC = () => {
                       <span className="text-[10px] tracking-widest text-gold font-bold uppercase">
                         {rPost.category}
                       </span>
-                      <h4 className="font-poppins font-bold text-primary text-base group-hover:text-primary-light transition-colors line-clamp-2">
+                      <h3 className="font-poppins font-bold text-primary text-base group-hover:text-primary-light transition-colors line-clamp-2">
                         {rPost.title}
-                      </h4>
+                      </h3>
                       <p className="text-text-muted text-xs line-clamp-2 leading-relaxed">
                         {rPost.excerpt}
                       </p>

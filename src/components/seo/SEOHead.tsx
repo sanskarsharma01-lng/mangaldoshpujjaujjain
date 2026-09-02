@@ -5,12 +5,15 @@ import { siteConfig } from '../../data/siteConfig';
 interface SEOHeadProps {
   title: string;
   description: string;
-  canonical?: string;
+  /** Fully qualified canonical URL for this page, e.g. https://mangaldoshpujaaujjain.com/mangal-dosh-puja-ujjain */
+  canonical: string;
   ogImage?: string;
   ogType?: 'website' | 'article';
   publishedTime?: string;
   modifiedTime?: string;
   noIndex?: boolean;
+  /** Override og:locale. Defaults to en_IN */
+  ogLocale?: string;
 }
 
 export const SEOHead: React.FC<SEOHeadProps> = ({
@@ -22,45 +25,55 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
   publishedTime,
   modifiedTime,
   noIndex = false,
+  ogLocale = 'en_IN',
 }) => {
-  const pageUrl = canonical ? canonical : window.location.href;
-  const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteConfig.seo.siteUrl}${ogImage}`;
+  const fullOgImage = ogImage.startsWith('http')
+    ? ogImage
+    : `${siteConfig.seo.siteUrl}${ogImage}`;
 
   return (
     <Helmet>
-      {/* Basic Meta Tags */}
+      {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={pageUrl} />
+      <link rel="canonical" href={canonical} />
 
-      {/* Robots Indexing */}
+      {/* Robots */}
       {noIndex ? (
         <meta name="robots" content="noindex, nofollow" />
       ) : (
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
       )}
 
-      {/* Open Graph Meta Tags */}
+      {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={pageUrl} />
+      <meta property="og:url" content={canonical} />
       <meta property="og:image" content={fullOgImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:alt" content={title} />
       <meta property="og:site_name" content={siteConfig.name} />
+      <meta property="og:locale" content={ogLocale} />
 
-      {/* Article Schema Specific Tags */}
+      {/* Article-specific OG tags */}
       {ogType === 'article' && publishedTime && (
         <meta property="article:published_time" content={publishedTime} />
       )}
       {ogType === 'article' && modifiedTime && (
         <meta property="article:modified_time" content={modifiedTime} />
       )}
+      {ogType === 'article' && (
+        <meta property="article:author" content={siteConfig.name} />
+      )}
 
-      {/* Twitter Card Meta Tags */}
+      {/* Twitter / X Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullOgImage} />
+      <meta name="twitter:image:alt" content={title} />
     </Helmet>
   );
 };

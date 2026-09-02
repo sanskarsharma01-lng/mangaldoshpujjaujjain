@@ -24,51 +24,104 @@ import VastuSection from '../components/sections/VastuSection';
 
 export const HomePage: React.FC = () => {
 
-  // LocalBusiness structured data schema
+  // ProfessionalService structured data (no fake address claim)
   const businessSchema = {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'ProfessionalService'],
-    '@id': `${siteConfig.seo.siteUrl}/#local-business`,
+    '@type': 'ProfessionalService',
+    '@id': `${siteConfig.seo.siteUrl}/#professional-service`,
     name: siteConfig.name,
-    description: siteConfig.tagline,
+    description: 'Experienced Vedic Pandits offering authentic Mangal Dosh Puja, Mangal Bhat Puja, Kaal Sarp Dosh Puja, and related traditional puja services in Ujjain, Madhya Pradesh, India.',
     url: siteConfig.seo.siteUrl,
     logo: `${siteConfig.seo.siteUrl}/favicon.svg`,
     image: `${siteConfig.seo.siteUrl}${siteConfig.seo.ogImage}`,
-    telephone: siteConfig.phone,
+    telephone: `+${siteConfig.whatsapp}`,
     email: siteConfig.email,
     address: {
       '@type': 'PostalAddress',
       streetAddress: siteConfig.address,
       addressLocality: siteConfig.city,
       addressRegion: siteConfig.state,
-      addressCountry: siteConfig.country,
+      addressCountry: 'IN',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '23.2044', // Ujjain Mangalnath Coordinates
+      latitude: '23.2044',
       longitude: '75.7834',
     },
-    priceRange: '₹₹',
     areaServed: {
-      '@type': 'Country',
-      name: 'India',
+      '@type': 'City',
+      name: 'Ujjain',
+      containedInPlace: {
+        '@type': 'State',
+        name: 'Madhya Pradesh',
+      },
     },
+    serviceType: [
+      'Mangal Dosh Puja',
+      'Mangal Bhat Puja',
+      'Kaal Sarp Dosh Puja',
+      'Vedic Puja Services',
+    ],
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday',
+          'Monday', 'Tuesday', 'Wednesday', 'Thursday',
+          'Friday', 'Saturday', 'Sunday',
         ],
         opens: '06:00',
         closes: '21:00',
       },
     ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Puja Services in Ujjain',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Mangal Dosh Puja Ujjain',
+            url: `${siteConfig.seo.siteUrl}/mangal-dosh-puja-ujjain`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Mangal Bhat Puja Ujjain',
+            url: `${siteConfig.seo.siteUrl}/mangal-bhat-puja-ujjain`,
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Kaal Sarp Dosh Puja Ujjain',
+            url: `${siteConfig.seo.siteUrl}/kaal-sarp-dosh-puja-ujjain`,
+          },
+        },
+      ],
+    },
+  };
+
+  // WebSite schema with SearchAction for Google Sitelinks Search Box
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${siteConfig.seo.siteUrl}/#website`,
+    name: siteConfig.name,
+    url: siteConfig.seo.siteUrl,
+    description: siteConfig.seo.defaultDescription,
+    inLanguage: ['en', 'hi'],
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${siteConfig.seo.siteUrl}/blog?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   };
 
   return (
@@ -78,6 +131,7 @@ export const HomePage: React.FC = () => {
         description={siteConfig.seo.defaultDescription}
         canonical={siteConfig.seo.siteUrl}
       />
+      <StructuredData data={websiteSchema} />
       <StructuredData data={businessSchema} />
 
       <main role="main">
