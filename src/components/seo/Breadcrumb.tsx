@@ -28,6 +28,20 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
   const allItems: BreadcrumbItem[] = [{ label: 'Home', href: '/' }, ...items];
 
   // ── JSON-LD BreadcrumbList ─────────────────────────────────────
+  // Google requires 'item' (an absolute URL) on EVERY ListItem, including
+  // the last one. Using window.location.href as the fallback for the current
+  // page ensures the field is always present.
+  const currentPageUrl =
+    typeof window !== 'undefined'
+      ? window.location.origin + window.location.pathname
+      : siteUrl;
+
+  const toAbsoluteUrl = (href?: string): string => {
+    if (!href) return currentPageUrl;
+    if (href.startsWith('http')) return href;
+    return `${siteUrl}${href.startsWith('/') ? href : `/${href}`}`;
+  };
+
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -35,13 +49,10 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
       '@type': 'ListItem',
       position: idx + 1,
       name: item.label,
-      item: item.href
-        ? item.href.startsWith('http')
-          ? item.href
-          : `${siteUrl}${item.href.startsWith('/') ? item.href : `/${item.href}`}`
-        : undefined,
+      item: toAbsoluteUrl(item.href),
     })),
   };
+
 
   return (
     <>
@@ -78,16 +89,23 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({ items }) => {
                 )}
 
                 {isLast || !item.href ? (
-                  /* Current page – plain text */
+                  /* Current page – plain text, but still needs itemProp="item" for microdata */
                   <span
-                    className="text-text-muted font-medium"
-                    aria-current="page"
-                    itemProp="name"
+                    itemProp="item"
+                    itemScope
+                    itemType="https://schema.org/WebPage"
+                    itemID={toAbsoluteUrl(item.href)}
                   >
-                    {isFirst && (
-                      <Home className="w-3.5 h-3.5 inline-block mr-0.5 -mt-0.5 text-gold/70" aria-hidden="true" />
-                    )}
-                    {item.label}
+                    <span
+                      className="text-text-muted font-medium"
+                      aria-current="page"
+                      itemProp="name"
+                    >
+                      {isFirst && (
+                        <Home className="w-3.5 h-3.5 inline-block mr-0.5 -mt-0.5 text-gold/70" aria-hidden="true" />
+                      )}
+                      {item.label}
+                    </span>
                   </span>
                 ) : (
                   /* Ancestor page – clickable link */
