@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { services } from '../../data/services';
-import { ScrollReveal } from '../ui/ScrollReveal';
 
 // Fallback images for puja services when local image files are not available
 const pujaImageFallback: Record<string, string> = {
@@ -26,9 +25,9 @@ export const PujaServices: React.FC = () => {
   return (
     <section className="section-padding bg-cream/35 relative overflow-hidden" id="puja-services">
       <div className="container-custom relative z-10">
-        
+
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <ScrollReveal direction="up" delay={0.1}>
+          <div>
             <span className="section-label justify-center">
               <span aria-hidden="true">🕉</span> वैदिक सेवाएँ
             </span>
@@ -39,10 +38,10 @@ export const PujaServices: React.FC = () => {
             <p className="section-subtitle mx-auto">
               {language === 'hi' ? 'उज्जैन में अनुभवी पंडितों के मार्गदर्शन में संपन्न होने वाली पारंपरिक वैदिक पूजा और शांति अनुष्ठानों में से चुनें।' : 'Choose from our range of traditional Vedic puja and shanti rituals, conducted under the guidance of experienced Pandits in Ujjain.'}
             </p>
-          </ScrollReveal>
+          </div>
         </div>
 
-        <ScrollReveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
             <article
               key={service.id}
@@ -54,7 +53,7 @@ export const PujaServices: React.FC = () => {
                   <img
                     src={service.image}
                     alt={language === 'hi' && service.nameHi ? service.nameHi : service.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+                    className="w-full h-full object-cover"
                     onError={(e) => {
                       const target = e.currentTarget;
                       const fallback = pujaImageFallback[service.id] || '/mangalnath-temple.jpg';
@@ -70,7 +69,7 @@ export const PujaServices: React.FC = () => {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-poppins font-bold text-primary mb-3 group-hover:text-primary-light transition-colors duration-200">
+                  <h3 className="text-xl font-poppins font-bold text-primary mb-3">
                     {language === 'hi' && service.nameHi ? service.nameHi : service.name}
                   </h3>
 
@@ -83,7 +82,7 @@ export const PujaServices: React.FC = () => {
               <div className="px-6 pb-6 pt-2 flex flex-wrap items-center gap-3">
                 <Link
                   to={`/${service.slug}`}
-                  className="inline-flex items-center text-gold hover:text-gold-dark text-sm font-semibold tracking-wide transition-colors duration-200"
+                  className="inline-flex items-center text-gold hover:text-gold-dark text-sm font-semibold tracking-wide"
                 >
                   {t('services.viewDetails')}
                 </Link>
@@ -96,7 +95,7 @@ export const PujaServices: React.FC = () => {
               </div>
             </article>
           ))}
-        </ScrollReveal>
+        </div>
       </div>
     </section>
   );

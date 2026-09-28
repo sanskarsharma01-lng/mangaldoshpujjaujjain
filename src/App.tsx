@@ -1,8 +1,16 @@
 import React, { Suspense, lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { Layout } from './components/layout/Layout';
+
+// Admin Panel Components & Pages
+import { AdminLayout } from './admin/components/AdminLayout';
+import { ProtectedRoute } from './admin/components/ProtectedRoute';
+import { AdminLogin } from './admin/pages/AdminLogin';
+import { AdminDashboard } from './admin/pages/AdminDashboard';
+import { AdminGallery } from './admin/pages/AdminGallery';
+import { AdminVideos } from './admin/pages/AdminVideos';
 
 // Lazy loading all pages for optimal performance and code splitting
 const HomePage = lazy(() => import('./pages/HomePage'));
@@ -45,46 +53,60 @@ export const App: React.FC = () => {
   return (
     <HelmetProvider>
       <LanguageProvider>
-        <Layout>
-          <Suspense fallback={<PageLoader />}>
-            <Routes>
-              {/* Home */}
-              <Route path="/" element={<HomePage />} />
-              
-              {/* Services */}
-              <Route path="/mangal-dosh-puja-ujjain" element={<MangalDoshPujaPage />} />
-              <Route path="/mangal-bhat-puja-ujjain" element={<MangalBhatPujaPage />} />
-              <Route path="/mangal-shanti-puja" element={<MangalShantiPage />} />
-              <Route path="/navgraha-shanti-puja" element={<NavgrahaShantiPage />} />
-              <Route path="/rudrabhishek" element={<RudrabhishekPage />} />
-              <Route path="/mahakaleshwar-puja-ujjain" element={<MahakaleshwarPujaPage />} />
-              <Route path="/mahamrityunjaya-jaap-ujjain" element={<MahamrityunjayaJaapPage />} />
-              <Route path="/kaal-sarp-dosh-puja-ujjain" element={<KaalSarpDoshPujaPage />} />
-              <Route path="/baglamukhi-havan-ujjain" element={<BaglamukhiHavanPage />} />
-              <Route path="/pitra-dosh-nivaran-puja" element={<PitraDoshNivaranPage />} />
-              <Route path="/batuk-bhairav-puja-ujjain" element={<BatukBhairavPujaPage />} />
+        <Routes>
+          <Route path="/*" element={
+            <Layout>
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                  {/* Home */}
+                  <Route path="/" element={<HomePage />} />
 
-              {/* Core Pages */}
-              <Route path="/puja-packages" element={<PujaPackagesPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/faq" element={<FAQPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/gallery" element={<GalleryPage />} />
+                  {/* Services */}
+                  <Route path="/mangal-dosh-puja-ujjain" element={<MangalDoshPujaPage />} />
+                  <Route path="/mangal-bhat-puja-ujjain" element={<MangalBhatPujaPage />} />
+                  <Route path="/mangal-shanti-puja" element={<MangalShantiPage />} />
+                  <Route path="/navgraha-shanti-puja" element={<NavgrahaShantiPage />} />
+                  <Route path="/rudrabhishek" element={<RudrabhishekPage />} />
+                  <Route path="/mahakaleshwar-puja-ujjain" element={<MahakaleshwarPujaPage />} />
+                  <Route path="/mahamrityunjaya-jaap-ujjain" element={<MahamrityunjayaJaapPage />} />
+                  <Route path="/kaal-sarp-dosh-puja-ujjain" element={<KaalSarpDoshPujaPage />} />
+                  <Route path="/baglamukhi-havan-ujjain" element={<BaglamukhiHavanPage />} />
+                  <Route path="/pitra-dosh-nivaran-puja" element={<PitraDoshNivaranPage />} />
+                  <Route path="/batuk-bhairav-puja-ujjain" element={<BatukBhairavPujaPage />} />
 
-              {/* Blog */}
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/blog/:slug" element={<BlogPostPage />} />
+                  {/* Core Pages */}
+                  <Route path="/puja-packages" element={<PujaPackagesPage />} />
+                  <Route path="/about" element={<AboutPage />} />
+                  <Route path="/faq" element={<FAQPage />} />
+                  <Route path="/contact" element={<ContactPage />} />
+                  <Route path="/gallery" element={<GalleryPage />} />
 
-              {/* Legal */}
-              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-              <Route path="/terms-and-conditions" element={<TermsPage />} />
-              <Route path="/disclaimer" element={<DisclaimerPage />} />
+                  {/* Blog */}
+                  <Route path="/blog" element={<BlogPage />} />
+                  <Route path="/blog/:slug" element={<BlogPostPage />} />
 
-              {/* 404 */}
-              <Route path="*" element={<NotFoundPage />} />
-            </Routes>
-          </Suspense>
-        </Layout>
+                  {/* Legal */}
+                  <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                  <Route path="/terms-and-conditions" element={<TermsPage />} />
+                  <Route path="/disclaimer" element={<DisclaimerPage />} />
+
+                  {/* 404 */}
+                  <Route path="*" element={<NotFoundPage />} />
+                </Routes>
+              </Suspense>
+            </Layout>} />
+
+          {/* Admin Panel Routes (Outside public Layout) */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<ProtectedRoute />}>
+            <Route element={<AdminLayout />}>
+              <Route index element={<Navigate to="/admin/dashboard" replace />} />
+              <Route path="dashboard" element={<AdminDashboard />} />
+              <Route path="gallery" element={<AdminGallery />} />
+              <Route path="videos" element={<AdminVideos />} />
+            </Route>
+          </Route>
+        </Routes>
       </LanguageProvider>
     </HelmetProvider>
   );

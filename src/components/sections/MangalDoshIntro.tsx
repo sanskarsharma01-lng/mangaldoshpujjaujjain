@@ -8,13 +8,10 @@ export const MangalDoshIntro: React.FC = () => {
   return (
     <section className="section-padding bg-ivory relative overflow-hidden" id="about-mangal-dosh">
       {/* Subtle om element in background */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 text-gold/5 font-serif text-[24rem] select-none pointer-events-none transform translate-x-1/3">
-        🕉
-      </div>
 
       <div className="container-custom">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+
           {/* Left Column: Educational Content */}
           <div className="lg:col-span-7 space-y-6">
             <ScrollReveal direction="up" delay={0.1}>

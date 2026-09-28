@@ -85,9 +85,10 @@ export interface GalleryItem {
   src: string;
   alt: string;
   altHi?: string;
-  category: 'Temple' | 'Puja' | 'Havan' | 'Pandit Ji' | 'Ujjain' | 'Devotees' | 'Prasad';
-  width: number;
-  height: number;
+  category: string;
+  width?: number;
+  height?: number;
+  isVideo?: boolean;
 }
 
 export interface Pandit {

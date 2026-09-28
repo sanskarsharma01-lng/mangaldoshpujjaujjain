@@ -1,11 +1,12 @@
-﻿import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
-import { galleryItems } from '../../data/gallery';
 import { useLanguage } from '../../contexts/LanguageContext';
 import { ScrollReveal } from '../ui/ScrollReveal';
+import { API_BASE_URL } from '../../config/api';
+import type { GalleryItem } from '../../types';
 
-// Per-category gradient placeholders (saffron/gold theme)
+// Per-category gradient placeholders
 const categoryGradients: Record<string, string> = {
   Temple:      'linear-gradient(135deg,#78350f 0%,#b45309 60%,#d97706 100%)',
   Puja:        'linear-gradient(135deg,#7c2d12 0%,#ea580c 60%,#f97316 100%)',
@@ -22,7 +23,7 @@ const categoryIcons: Record<string, string> = {
 };
 
 interface CardProps {
-  item: typeof galleryItems[0];
+  item: GalleryItem;
   delay?: number;
   className?: string;
 }
@@ -36,8 +37,6 @@ const GalleryCard: React.FC<CardProps> = ({ item, delay = 0, className = '' }) =
   return (
     <ScrollReveal delay={delay} className={`group overflow-hidden rounded-2xl ${className}`}>
       <Link to="/gallery" className="block relative w-full h-full overflow-hidden rounded-2xl" aria-label={item.alt}>
-
-        {/* Image or Saffron placeholder */}
         {!showPh ? (
           <img
             src={item.src}
@@ -47,37 +46,57 @@ const GalleryCard: React.FC<CardProps> = ({ item, delay = 0, className = '' }) =
           />
         ) : (
           <div className="w-full h-full flex flex-col items-center justify-center relative" style={{ background: grad }}>
-            {/* dot texture */}
             <div className="absolute inset-0 opacity-[0.10]"
               style={{ backgroundImage: 'radial-gradient(rgba(255,220,130,0.8) 1px,transparent 1px)', backgroundSize: '18px 18px' }} />
-            {/* radial glow */}
-            <div className="absolute" style={{
-              top: '12%', right: '18%', width: 140, height: 140, borderRadius: '50%',
-              background: 'radial-gradient(circle,rgba(255,200,80,0.35) 0%,transparent 70%)',
-            }} />
-            {/* OM watermark */}
-            <span className="absolute inset-0 flex items-center justify-center font-serif text-white/[0.06] select-none pointer-events-none"
-              style={{ fontSize: '8rem', lineHeight: 1 }}>ॐ</span>
-            {/* Icon */}
             <span className="relative z-10 text-5xl drop-shadow-lg">{icon}</span>
           </div>
         )}
-
-        {/* Subtle hover dark overlay */}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-2xl" />
       </Link>
     </ScrollReveal>
   );
 };
 
-// ─── Main Section ─────────────────────────────────────────────
 const HomeGallery: React.FC = () => {
   const { language, t } = useLanguage();
+  const [items, setItems] = useState<GalleryItem[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  // items: 0=featured(left tall), 1-4=right 2x2, 5-7=bottom row
-  const featured  = galleryItems[0];
-  const rightGrid = galleryItems.slice(1, 5);
-  const bottomRow = galleryItems.slice(5, 8);
+  useEffect(() => {
+    const fetchGallery = async () => {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/gallery?type=image`);
+        if (res.ok) {
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            const apiItems: GalleryItem[] = data.map((item: any) => ({
+              id: `api-${item.id}`,
+              src: item.filepath ? (item.filepath.startsWith('http') ? item.filepath : `${API_BASE_URL}${item.filepath}`) : '',
+              alt: item.title_en || item.description_en || item.title_hi || `${item.category || 'Puja'} Photo`,
+              altHi: item.title_hi || item.description_hi,
+              category: item.category || 'Puja',
+            }));
+            setItems(apiItems);
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching home gallery items:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchGallery();
+  }, []);
+
+  // Do not render section if loading or if no data exists in backend
+  if (isLoading || items.length === 0) {
+    return null;
+  }
+
+  const featured  = items[0];
+  const rightGrid = items.slice(1, 5);
+  const bottomRow = items.slice(5, 8);
 
   return (
     <section
@@ -107,42 +126,58 @@ const HomeGallery: React.FC = () => {
           </Link>
         </ScrollReveal>
 
-        {/* ── Top section: 1 large left + 2×2 right ── */}
-        <div className="grid grid-cols-3 gap-3 sm:gap-4" style={{ gridTemplateRows: 'auto auto' }}>
-
-          {/* Large featured card — spans 2 rows on left */}
-          <div className="col-span-3 sm:col-span-1 sm:row-span-2" style={{ minHeight: 320 }}>
+        {/* ── Grid Layout for items ── */}
+        {items.length === 1 ? (
+          <div className="max-w-xl mx-auto aspect-video">
             <GalleryCard item={featured} delay={0} className="h-full" />
           </div>
-
-          {/* Top-right: 2 cards */}
-          <div className="col-span-3 sm:col-span-2 grid grid-cols-2 gap-3 sm:gap-4">
-            {rightGrid.slice(0, 2).map((item, i) => (
-              <div key={item.id} style={{ aspectRatio: '4/3' }}>
-                <GalleryCard item={item} delay={0.07 + i * 0.06} className="h-full" />
+        ) : items.length <= 4 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {items.map((item, i) => (
+              <div key={item.id} className="aspect-square">
+                <GalleryCard item={item} delay={i * 0.05} className="h-full" />
               </div>
             ))}
           </div>
-
-          {/* Bottom-right: 2 cards */}
-          <div className="col-span-3 sm:col-span-2 grid grid-cols-2 gap-3 sm:gap-4">
-            {rightGrid.slice(2, 4).map((item, i) => (
-              <div key={item.id} style={{ aspectRatio: '4/3' }}>
-                <GalleryCard item={item} delay={0.19 + i * 0.06} className="h-full" />
+        ) : (
+          <>
+            <div className="grid grid-cols-3 gap-3 sm:gap-4" style={{ gridTemplateRows: 'auto auto' }}>
+              <div className="col-span-3 sm:col-span-1 sm:row-span-2" style={{ minHeight: 320 }}>
+                <GalleryCard item={featured} delay={0} className="h-full" />
               </div>
-            ))}
-          </div>
 
-        </div>
+              {rightGrid.length > 0 && (
+                <div className="col-span-3 sm:col-span-2 grid grid-cols-2 gap-3 sm:gap-4">
+                  {rightGrid.slice(0, 2).map((item, i) => (
+                    <div key={item.id} style={{ aspectRatio: '4/3' }}>
+                      <GalleryCard item={item} delay={0.07 + i * 0.06} className="h-full" />
+                    </div>
+                  ))}
+                </div>
+              )}
 
-        {/* ── Bottom row: 3 equal cards ── */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-3 sm:mt-4">
-          {bottomRow.map((item, i) => (
-            <div key={item.id} style={{ aspectRatio: '4/3' }}>
-              <GalleryCard item={item} delay={0.31 + i * 0.06} className="h-full" />
+              {rightGrid.length > 2 && (
+                <div className="col-span-3 sm:col-span-2 grid grid-cols-2 gap-3 sm:gap-4">
+                  {rightGrid.slice(2, 4).map((item, i) => (
+                    <div key={item.id} style={{ aspectRatio: '4/3' }}>
+                      <GalleryCard item={item} delay={0.19 + i * 0.06} className="h-full" />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
-          ))}
-        </div>
+
+            {bottomRow.length > 0 && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 mt-3 sm:mt-4">
+                {bottomRow.map((item, i) => (
+                  <div key={item.id} style={{ aspectRatio: '4/3' }}>
+                    <GalleryCard item={item} delay={0.31 + i * 0.06} className="h-full" />
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
+        )}
 
         {/* ── View all link ── */}
         <ScrollReveal delay={0.4} className="mt-8 text-center">
